@@ -6,7 +6,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,5 +18,5 @@ jobs:
           ssh-keyscan -H ${{ secrets.NUC_HOST }} >> ~/.ssh/known_hosts
           ls -la ~/.ssh
 
-      - name: Test SSH connection (debug)
+      - name: Test SSH connection
         run: ssh -vvv -i ~/.ssh/id_ed25519_nuc_action alpine@${{ secrets.NUC_HOST }} "whoami && uname -a"
