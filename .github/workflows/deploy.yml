@@ -1,37 +1,56 @@
-name: Deploy NUC Stack
+name: Deploy via SSH
 
-# Dispara a action quando houver push na branch main
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  deploy-backend:
-    name: Deploy Backend
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup SSH Key
+      - name: Setup SSH key and config
         run: |
           mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          # Salva a chave privada e garante permissões corretas
           echo "${{ secrets.NUC_SSH_KEY }}" > ~/.ssh/id_ed25519_nuc_action
           chmod 600 ~/.ssh/id_ed25519_nuc_action
-          ssh-keyscan -H ${{ secrets.NUC_HOST }} >> ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
+
+          # Cria arquivo known_hosts seguro e confiável
+          KNOWN_HOSTS_FILE=~/.ssh/known_hosts
+          touch $KNOWN_HOSTS_FILE
+          chmod 644 $KNOWN_HOSTS_FILE
+          ssh-keygen -R ${{ secrets.NUC_HOST }} || true
+          ssh-keyscan -H ${{ secrets.NUC_HOST }} >> $KNOWN_HOSTS_FILE
+
+          # Configuração opcional para simplificar SSH
+          cat >> ~/.ssh/config << EOF
+          Host alpine-server
+              HostName ${{ secrets.NUC_HOST }}
+              User alpine
+              IdentityFile ~/.ssh/id_ed25519_nuc_action
+              StrictHostKeyChecking yes
+              UserKnownHostsFile ~/.ssh/known_hosts
+              ServerAliveInterval 60
+              ServerAliveCountMax 5
+          EOF
+          chmod 600 ~/.ssh/config
 
       - name: Test SSH connection
         run: |
-          ssh -i ~/.ssh/id_ed25519_nuc_action -o StrictHostKeyChecking=yes -vvv alpine@${{ secrets.NUC_HOST }} whoami
+          ssh alpine-server whoami
 
-      - name: Deploy Backend
+      - name: Deploy backend
         run: |
-          ssh -i ~/.ssh/id_ed25519_nuc_action alpine@${{ secrets.NUC_HOST }} << 'EOF'
-            echo "Atualizando backend..."
+          ssh alpine-server << 'EOF'
+            set -e  # encerra se algum comando falhar
             cd /home/alpine/backend
             git pull
             docker-compose -f /home/alpine/docker-compose.yml build api
             docker-compose -f /home/alpine/docker-compose.yml up -d api
-            echo "Backend atualizado!"
           EOF
