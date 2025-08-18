@@ -1,22 +1,23 @@
-name: Deploy NUC Stack
+name: Deploy to NUC
 
-# Dispara a action quando houver push na branch main
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch: # pode rodar manualmente
 
 jobs:
-  deploy-backend:
-    name: Deploy Backend
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.NUC_HOST }}
-          username: alpine
-          key: ${{ secrets.NUC_SSH_KEY }}
-          port: 22
-          script: |
-            whoami
-            uname -a
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.NUC_SSH_KEY }}" > ~/.ssh/id_ed25519_nuc_action
+          chmod 600 ~/.ssh/id_ed25519_nuc_action
+          ssh-keyscan -H ${{ secrets.NUC_HOST }} >> ~/.ssh/known_hosts
+          ls -la ~/.ssh
+
+      - name: Test SSH connection (debug)
+        run: ssh -vvv -i ~/.ssh/id_ed25519_nuc_action alpine@${{ secrets.NUC_HOST }} "whoami && uname -a"
