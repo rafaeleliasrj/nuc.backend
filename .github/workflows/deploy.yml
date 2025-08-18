@@ -1,56 +1,28 @@
-name: Deploy via SSH
+name: Deploy NUC Stack
 
+# Dispara a action quando houver push na branch main
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  deploy:
+  deploy-backend:
+    name: Deploy Backend
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup SSH key and config
-        run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-
-          # Salva a chave privada e garante permissões corretas
-          echo "${{ secrets.NUC_SSH_KEY }}" > ~/.ssh/id_ed25519_nuc_action
-          chmod 600 ~/.ssh/id_ed25519_nuc_action
-
-          # Cria arquivo known_hosts seguro e confiável
-          KNOWN_HOSTS_FILE=~/.ssh/known_hosts
-          touch $KNOWN_HOSTS_FILE
-          chmod 644 $KNOWN_HOSTS_FILE
-          ssh-keygen -R ${{ secrets.NUC_HOST }} || true
-          ssh-keyscan -H ${{ secrets.NUC_HOST }} >> $KNOWN_HOSTS_FILE
-
-          # Configuração opcional para simplificar SSH
-          cat >> ~/.ssh/config << EOF
-          Host alpine-server
-              HostName ${{ secrets.NUC_HOST }}
-              User alpine
-              IdentityFile ~/.ssh/id_ed25519_nuc_action
-              StrictHostKeyChecking yes
-              UserKnownHostsFile ~/.ssh/known_hosts
-              ServerAliveInterval 60
-              ServerAliveCountMax 5
-          EOF
-          chmod 600 ~/.ssh/config
-
-      - name: Test SSH connection
-        run: |
-          ssh alpine-server whoami
-
-      - name: Deploy backend
-        run: |
-          ssh alpine-server << 'EOF'
-            set -e  # encerra se algum comando falhar
+      - name: Deploy Backend via SSH
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.NUC_HOST }}
+          username: ${{ secrets.NUC_USER }}
+          key: ${{ secrets.NUC_SSH_KEY }}
+          script: |
+            echo "Atualizando backend..."
             cd /home/alpine/backend
             git pull
             docker-compose -f /home/alpine/docker-compose.yml build api
             docker-compose -f /home/alpine/docker-compose.yml up -d api
-          EOF
+            echo "Backend atualizado!"
