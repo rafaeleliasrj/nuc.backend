@@ -1,6 +1,5 @@
 name: Deploy NUC Stack
 
-# Dispara a action quando houver push na branch main
 on:
   push:
     branches: [ main ]
@@ -22,7 +21,25 @@ jobs:
           script: |
             echo "Atualizando backend..."
             cd /home/alpine/backend
-            git pull
-            docker-compose -f /home/alpine/docker-compose.yml build api
+
+            echo "Pull da branch main"
+            git fetch --all
+            git reset --hard origin/main
+
+            echo "Removendo container antigo do API (se existir)"
+            docker-compose -f /home/alpine/docker-compose.yml rm -sf api || true
+
+            echo "Rebuild da imagem do backend sem cache"
+            docker-compose -f /home/alpine/docker-compose.yml build --no-cache api
+
+            echo "Subindo container do backend"
             docker-compose -f /home/alpine/docker-compose.yml up -d api
-            echo "Backend atualizado!"
+
+            echo "Verificando containers ativos e imagens"
+            docker ps -a | grep api
+            docker images | grep alpine-api
+
+            echo "Logs recentes do backend"
+            docker-compose -f /home/alpine/docker-compose.yml logs --tail=20 api
+
+            echo "Backend atualizado com sucesso!"

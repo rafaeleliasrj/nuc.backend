@@ -1,0 +1,80 @@
+# =====================
+# .NET / C#
+# =====================
+bin/
+obj/
+out/
+artifacts/
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.log
+*.vspscc
+*.vssscc
+TestResults/
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+*.dotCover
+Migrations/
+*.db
+appsettings.*.json
+secrets.json
+
+# =====================
+# Docker
+# =====================
+docker-compose.override.yml
+*.dockerfile
+Dockerfile.*
+**/tmp/
+**/cache/
+docker-volumes/
+
+# =====================
+# Node / Frontend
+# =====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+build/
+.next/
+out/
+.vite/
+*.tsbuildinfo
+
+# =====================
+# IDEs / Editors
+# =====================
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.code-workspace
+
+# =====================
+# OS generated
+# =====================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =====================
+# Secrets / Keys
+# =====================
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.crt
