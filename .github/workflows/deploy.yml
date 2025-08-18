@@ -1,4 +1,4 @@
-name: Deploy to NUC
+name: Deploy to NUC 
 
 on:
   workflow_dispatch: # você pode trocar para push/main depois
