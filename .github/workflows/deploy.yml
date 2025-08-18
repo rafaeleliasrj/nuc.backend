@@ -22,24 +22,19 @@ jobs:
             echo "Atualizando backend..."
             cd /home/alpine/backend
 
-            echo "Pull da branch main"
+            # Puxa alterações do Git e força reset do branch
             git fetch --all
             git reset --hard origin/main
 
-            echo "Removendo container antigo do API (se existir)"
-            docker-compose -f /home/alpine/docker-compose.yml rm -sf api || true
-
-            echo "Rebuild da imagem do backend sem cache"
+            # Reconstruir imagem do API sem cache e recriar container
             docker-compose -f /home/alpine/docker-compose.yml build --no-cache api
+            docker-compose -f /home/alpine/docker-compose.yml up -d --force-recreate api
 
-            echo "Subindo container do backend"
-            docker-compose -f /home/alpine/docker-compose.yml up -d api
+            echo "Removendo containers parados..."
+            docker container prune -f
 
-            echo "Verificando containers ativos e imagens"
-            docker ps -a | grep api
-            docker images | grep alpine-api
+            echo "Removendo imagens antigas do backend..."
+            # Remove todas as imagens do backend que não são a última build
+            docker images alpine-api -q | sort -r | tail -n +2 | xargs -r docker rmi -f
 
-            echo "Logs recentes do backend"
-            docker-compose -f /home/alpine/docker-compose.yml logs --tail=20 api
-
-            echo "Backend atualizado com sucesso!"
+            echo "Deploy finalizado. Apenas a imagem mais recente do backend permanece!"
