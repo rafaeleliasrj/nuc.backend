@@ -1,28 +1,38 @@
-name: Deploy NUC Stack
+- name: Setup SSH Key
+  run: |
+    mkdir -p ~/.ssh
+    echo "${{ secrets.NUC_SSH_KEY }}" > ~/.ssh/id_ed25519
+    chmod 600 ~/.ssh/id_ed25519
+    ssh-keyscan -H ${{ secrets.NUC_HOST }} >> ~/.ssh/known_hosts
 
-# Dispara a action quando houver push na branch main
-on:
-  push:
-    branches: [ main ]
+- name: Test SSH
+  run: ssh -i ~/.ssh/id_ed25519 alpine@${{ secrets.NUC_HOST }} whoami
 
-jobs:
-  deploy-backend:
-    name: Deploy Backend
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+# name: Deploy NUC Stack
 
-      - name: Deploy Backend via SSH
-        uses: appleboy/ssh-action@v0.1.5
-        with:
-          host: ${{ secrets.NUC_HOST }}
-          username: ${{ secrets.NUC_USER }}
-          key: ${{ secrets.NUC_SSH_KEY }}
-          script: |
-            echo "Atualizando backend..."
-            cd /home/alpine/backend
-            git pull
-            docker-compose -f /home/alpine/docker-compose.yml build api
-            docker-compose -f /home/alpine/docker-compose.yml up -d api
-            echo "Backend atualizado!"
+# # Dispara a action quando houver push na branch main
+# on:
+#   push:
+#     branches: [ main ]
+
+# jobs:
+#   deploy-backend:
+#     name: Deploy Backend
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
+
+#       - name: Deploy Backend via SSH
+#         uses: appleboy/ssh-action@v0.1.5
+#         with:
+#           host: ${{ secrets.NUC_HOST }}
+#           username: ${{ secrets.NUC_USER }}
+#           key: ${{ secrets.NUC_SSH_KEY }}
+#           script: |
+#             echo "Atualizando backend..."
+#             cd /home/alpine/backend
+#             git pull
+#             docker-compose -f /home/alpine/docker-compose.yml build api
+#             docker-compose -f /home/alpine/docker-compose.yml up -d api
+#             echo "Backend atualizado!"
