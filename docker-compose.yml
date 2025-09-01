@@ -2,7 +2,7 @@ services:
   api:
     build:
       context: ./backend
-      dockerfile: Dockerfile
+      dockerfile: ./src/Avvo.API/Dockerfile
     container_name: nuc_api
     ports:
       - "5000:5000"   # acesso externo

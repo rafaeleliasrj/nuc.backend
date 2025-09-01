@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup>
+    <StartupProject>src/Avvo.API/Avvo.API.csproj</StartupProject>
+  </PropertyGroup>
+</Project>
