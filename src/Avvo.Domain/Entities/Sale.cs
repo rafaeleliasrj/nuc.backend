@@ -1,19 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Avvo.Core.Abstractions;
+using Avvo.Core.Commons.Entities;
+using Avvo.Core.Commons.Interfaces;
+using Avvo.Domain.Enums;
 
 namespace Avvo.Domain.Entities
 {
     /// <summary>
     /// Representa uma Venda no domínio de Gestão de Vendas.
     /// </summary>
-    public class Sale : BaseEntity, IAggregateRoot, IEntityTenantControlAccess
+    public class Sale : BaseEntity, ITenantEntity, IBusinessEntity
     {
-        public Guid TenantId { get; private set; }
-        public Guid? CustomerId { get; private set; }
-        public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
+        /// <summary>Identificador do Tenant (multitenancy).</summary>
+        public Guid TenantId { get; set; }
 
+        /// <summary>Identificador da empresa a qual o cliente pertence.</summary>
+        public Guid BusinessId { get; set; }
+
+        public virtual Customer? Customer { get; set; }
+
+        /// <summary>Identificador do cliente.</summary>
+        public Guid? CustomerId { get; private set; }
         private readonly List<SaleItem> _items = new();
         public IReadOnlyCollection<SaleItem> Items => _items.AsReadOnly();
 
@@ -28,21 +33,17 @@ namespace Avvo.Domain.Entities
 
         public SaleStatus Status { get; private set; } = SaleStatus.Open;
 
-        private Sale() { }
+        private Sale() { } // ORM
 
-        public static Sale Start(Guid tenantId, Guid? customerId = null)
+        public Sale(Guid? customerId, Guid? id = null) : base(id)
         {
-            return new Sale
-            {
-                TenantId = tenantId,
-                CustomerId = customerId
-            };
+            CustomerId = customerId;
         }
 
         /// <summary>
         /// Adiciona um item à venda, referenciando o SKU específico.
         /// </summary>
-        public void AddItem(ProductSku sku, int quantity, decimal unitPrice, decimal discount = 0)
+        public void AddItem(ProductSku sku, decimal quantity, decimal unitPrice, decimal discount = 0)
         {
             if (sku == null) throw new ArgumentNullException(nameof(sku));
             if (quantity <= 0) throw new ArgumentOutOfRangeException(nameof(quantity));
@@ -54,9 +55,8 @@ namespace Avvo.Domain.Entities
         /// <summary>
         /// Adiciona um pagamento à venda.
         /// </summary>
-        public void AddPayment(string method, decimal amount)
+        public void AddPayment(PaymentMethod method, decimal amount)
         {
-            if (string.IsNullOrWhiteSpace(method)) throw new ArgumentNullException(nameof(method));
             if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount));
 
             var payment = new Payment(method, amount);
@@ -74,26 +74,12 @@ namespace Avvo.Domain.Entities
         public void FinalizeSale()
         {
             if (!CanBeFinalized())
-                throw new InvalidOperationException("Cannot finalize sale: either no items or insufficient payment.");
+                throw new InvalidOperationException("Não foi possível finalizar a venda, verifique os pagamentos.");
 
             if (Status != SaleStatus.Open)
                 throw new InvalidOperationException("A venda já foi confirmada ou cancelada.");
 
-            foreach (var item in _items)
-            {
-                if (!stockDictionary.TryGetValue(item.ProductSkuId, out var stock))
-                    throw new InvalidOperationException($"Não existe estoque cadastrado para o SKU {item.ProductSkuId}.");
-
-                stock.Decrease(
-                    item.Quantity,
-                    reason: $"Venda {Id}",
-                    referenceId: Id
-                );
-            }
-
-            Status = SaleStatus.Confirmed;
-
-            AddDomainEvent(new SaleConfirmedEvent(Id, TenantId, Total));
+            Status = SaleStatus.Finalized;
         }
 
         public void CancelSale()
@@ -101,24 +87,7 @@ namespace Avvo.Domain.Entities
             if (Status != SaleStatus.Open)
                 throw new InvalidOperationException("Only open sales can be canceled.");
 
-            foreach (var item in _items)
-            {
-                if (!stockDictionary.TryGetValue(item.ProductSkuId, out var stock))
-                    throw new InvalidOperationException($"Não existe estoque cadastrado para o SKU {item.ProductSkuId}.");
-
-                stock.Increase(
-                    item.Quantity,
-                    reason: $"Cancelamento da venda {Id}",
-                    referenceId: Id
-                );
-            }
-
             Status = SaleStatus.Canceled;
-            AddDomainEvent(new SaleCanceledEvent(Id, TenantId));
         }
     }
-
-    // Eventos de domínio
-    public record SaleConfirmedEvent(Guid SaleId, Guid TenantId, decimal Total) : IDomainEvent;
-    public record SaleCanceledEvent(Guid SaleId, Guid TenantId) : IDomainEvent;
 }

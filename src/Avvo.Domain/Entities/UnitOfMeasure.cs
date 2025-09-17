@@ -1,13 +1,19 @@
-using System;
-using Avvo.Domain.Commons;
+using Avvo.Core.Commons.Entities;
+using Avvo.Core.Commons.Interfaces;
 
 namespace Avvo.Domain.Entities
 {
     /// <summary>
     /// Representa uma Unidade de Medida (ex: kg, litro, unidade) no domínio de Gestão de Vendas.
     /// </summary>
-    public sealed class UnitOfMeasure : Entity, IAggregateRoot, IEntityTenantControlAccess
+    public sealed class UnitOfMeasure : BaseEntity, IAggregateRoot, ITenantEntity, IBusinessEntity
     {
+        /// <summary>Identificador do Tenant (multitenancy).</summary>
+        public Guid TenantId { get; set; }
+
+        /// <summary>Identificador da empresa a qual o cliente pertence.</summary>
+        public Guid BusinessId { get; set; }
+
         /// <summary>Sigla da unidade de medida (ex: kg, L, un).</summary>
         public string Code { get; private set; }
 

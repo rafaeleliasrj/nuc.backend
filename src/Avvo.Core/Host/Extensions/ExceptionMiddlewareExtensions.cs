@@ -13,21 +13,6 @@ namespace Avvo.Core.Host.Extensions
 {
     public static class ExceptionMiddlewareExtensions
     {
-
-        /// <summary>
-        /// Middleware utilizado para capturar/tratar as exceções não tratadas ou disparadas de forma intencional pelas aplicações.
-        /// </summary>
-        /// <param name="app"></param>
-        [Obsolete("Utilize o UseAvvoExceptionHandler.", false)]
-        public static void ConfigureExceptionHandler(this IApplicationBuilder app)
-        {
-            app.UseExceptionHandler(new ExceptionHandlerOptions
-            {
-                AllowStatusCode404Response = true,
-                ExceptionHandler = HandleExceptionWithoutLogging
-            });
-        }
-
         /// <summary>
         /// Middleware utilizado para capturar/tratar as exceções não tratadas ou disparadas de forma intencional pelas aplicações.
         /// Caso identifique que está ocorrendo log em duplicidade, verifique se foi adicionado o filtro abaixo no LogginBuilder:

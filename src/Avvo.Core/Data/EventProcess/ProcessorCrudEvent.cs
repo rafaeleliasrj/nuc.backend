@@ -50,7 +50,7 @@ namespace Avvo.Core.Data.EntityFramework.EventProcess
                     {
                         Guid entityId = Guid.Empty;
 
-                        if (entity is IBaseEntity baseEntity)
+                        if (entity is BaseEntity baseEntity)
                         {
                             entityId = baseEntity.Id;
                         }

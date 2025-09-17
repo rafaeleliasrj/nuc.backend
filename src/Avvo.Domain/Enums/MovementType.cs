@@ -1,11 +1,8 @@
-using Avvo.Core.Abstractions;
+namespace Avvo.Domain.Enums;
 
-namespace Avvo.Domain.Enums
+public enum MovementType
 {
-    public enum MovementType
-    {
-        Entry = 1,
-        Exit = 2,
-        Balance = 3
-    }
+    Entry = 1,
+    Exit = 2,
+    Balance = 3
 }

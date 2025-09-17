@@ -1,19 +1,30 @@
-using System;
-using System.Collections.Generic;
-using Avvo.GestaoVenda.Domain.Commons;
+using Avvo.Core.Commons.Entities;
+using Avvo.Core.Commons.Interfaces;
 
-namespace Avvo.GestaoVenda.Domain.Entities
+namespace Avvo.Domain.Entities
 {
     /// <summary>
     /// Representa um Produto no domínio de Gestão de Vendas.
     /// Produto é um Aggregate Root e possui SKUs para cada combinação de variações.
     /// </summary>
-    public sealed class Product : Entity, IAggregateRoot
+    public class Product : BaseEntity, IAggregateRoot, ITenantEntity, IBusinessEntity
     {
+        /// <summary>Identificador do Tenant (multitenancy).</summary>
+        public Guid TenantId { get; set; }
+
+        /// <summary>Identificador da empresa a qual o cliente pertence.</summary>
+        public Guid BusinessId { get; set; }
+
+        /// <summary>Nome do produto.</summary>
         public string Name { get; private set; }
-        public string Description { get; private set; }
+
+        /// <summary>Nome curto do produto.</summary>
+        public string? ShortName { get; private set; }
+
+        /// <summary>Descrição do produto.</summary>
+        public string? Description { get; private set; }
         public UnitOfMeasure UnitOfMeasure { get; private set; }
-        public ProductCategory Category { get; private set; }
+        public ProductCategory? Category { get; private set; }
 
         /// <summary>Lista de SKUs do produto, cada SKU representa uma variação vendável.</summary>
         public IReadOnlyCollection<ProductSku> Skus => _skus.AsReadOnly();
@@ -23,23 +34,24 @@ namespace Avvo.GestaoVenda.Domain.Entities
 
         private Product() { } // ORM
 
-        public Product(Guid? id, string name, string description, UnitOfMeasure unitOfMeasure, ProductCategory category)
+        public Product(string name, string? shortName, string? description, UnitOfMeasure unitOfMeasure, ProductCategory? category, Guid? id = null) : base(id)
         {
-            Id = id ?? Guid.NewGuid();
-            Name = name ?? throw new ArgumentNullException(nameof(name));
-            Description = description ?? throw new ArgumentNullException(nameof(description));
-            UnitOfMeasure = unitOfMeasure ?? throw new ArgumentNullException(nameof(unitOfMeasure));
-            Category = category ?? throw new ArgumentNullException(nameof(category));
+            Name = name;
+            ShortName = shortName;
+            Description = description;
+            UnitOfMeasure = unitOfMeasure;
+            Category = category;
             IsActive = true;
         }
 
         /// <summary>Atualiza os dados principais do produto.</summary>
-        public void Update(string name, string description, UnitOfMeasure unitOfMeasure, ProductCategory category)
+        public void Update(string name, string? shortName, string? description, UnitOfMeasure unitOfMeasure, ProductCategory? category)
         {
-            Name = name ?? throw new ArgumentNullException(nameof(name));
-            Description = description ?? throw new ArgumentNullException(nameof(description));
-            UnitOfMeasure = unitOfMeasure ?? throw new ArgumentNullException(nameof(unitOfMeasure));
-            Category = category ?? throw new ArgumentNullException(nameof(category));
+            Name = name;
+            ShortName = shortName;
+            Description = description;
+            UnitOfMeasure = unitOfMeasure;
+            Category = category;
         }
 
         /// <summary>Adiciona um SKU ao produto.</summary>

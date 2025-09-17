@@ -108,13 +108,12 @@ namespace Avvo.Core.Data.Interceptors
                     case EntityState.Added:
                         if (entry.Entity is IBaseEntity baseEntityAdd)
                         {
-                            baseEntityAdd.Id = Guid.NewGuid();
                             baseEntityAdd.CreateDate = now.UtcDateTime;
                             baseEntityAdd.CreateUserId = _userIdentity?.UserId;
                         }
                         if (entry.Entity is ITenantEntity tenantEntityAdd)
                         {
-                            var tenantId = _userIdentity?.SubscriptionId ?? Guid.Empty;
+                            var tenantId = _userIdentity?.TenantId ?? Guid.Empty;
                             if (tenantEntityAdd.TenantId == Guid.Empty)
                             {
                                 tenantEntityAdd.TenantId = tenantId;
@@ -131,7 +130,7 @@ namespace Avvo.Core.Data.Interceptors
                         }
                         if (entry.Entity is ITenantEntity tenantEntityMod)
                         {
-                            var currentTenantId = _userIdentity?.SubscriptionId ?? Guid.Empty;
+                            var currentTenantId = _userIdentity?.TenantId ?? Guid.Empty;
                             if (currentTenantId != Guid.Empty && tenantEntityMod.TenantId != Guid.Empty && tenantEntityMod.TenantId != currentTenantId)
                             {
                                 var errorMessage = $"TenantId inválido. Entidade: {entry.Entity.GetType().Name}, TenantId esperado: {currentTenantId}, Atual: {tenantEntityMod.TenantId}";

@@ -1,4 +1,6 @@
-using Avvo.Core.Abstractions;
+using Avvo.Core.Commons.Entities;
+using Avvo.Core.Commons.Interfaces;
+using Avvo.Domain.Enums;
 
 namespace Avvo.Domain.Entities
 {
@@ -6,25 +8,25 @@ namespace Avvo.Domain.Entities
     /// Estoque de um SKU de produto.
     /// Responsável por controlar a quantidade disponível e gerar movimentações.
     /// </summary>
-    public class Stock : Entity, IAggregateRoot, IEntityTenantControlAccess
+    public class Stock : BaseEntity, IAggregateRoot, ITenantEntity, IBusinessEntity
     {
-        public Guid TenantId { get; private set; }
+        /// <summary>Identificador do Tenant (multitenancy).</summary>
+        public Guid TenantId { get; set; }
+
+        /// <summary>Identificador da empresa a qual o cliente pertence.</summary>
+        public Guid BusinessId { get; set; }
         public Guid ProductSkuId { get; private set; }
-        public int Quantity { get; private set; }
+        public decimal Quantity { get; private set; }
 
         private readonly List<StockMovement> _movements = new();
         public IReadOnlyCollection<StockMovement> Movements => _movements.AsReadOnly();
 
-        private Stock() { }
+        private Stock() { } // ORM
 
-        public static Stock Create(Guid tenantId, Guid productSkuId, int initialQuantity = 0)
+        public Stock(Guid productSkuId, decimal initialQuantity = 0, Guid? id = null) : base(id)
         {
-            return new Stock
-            {
-                TenantId = tenantId,
-                ProductSkuId = productSkuId,
-                Quantity = initialQuantity
-            };
+            ProductSkuId = productSkuId;
+            Quantity = initialQuantity;
         }
 
         public void Increase(int quantity, string reason, Guid? referenceId = null)
@@ -35,8 +37,6 @@ namespace Avvo.Domain.Entities
             Quantity += quantity;
 
             var movement = new StockMovement(
-                Guid.NewGuid(),
-                DateTime.UtcNow,
                 MovementType.Entry,
                 quantity,
                 reason,
@@ -44,8 +44,6 @@ namespace Avvo.Domain.Entities
             );
 
             _movements.Add(movement);
-
-            AddDomainEvent(new StockIncreasedEvent(Id, ProductSkuId, quantity));
         }
 
         public void Decrease(int quantity, string reason, Guid? referenceId = null)
@@ -59,8 +57,6 @@ namespace Avvo.Domain.Entities
             Quantity -= quantity;
 
             var movement = new StockMovement(
-                Guid.NewGuid(),
-                DateTime.UtcNow,
                 MovementType.Exit,
                 quantity,
                 reason,
@@ -68,14 +64,12 @@ namespace Avvo.Domain.Entities
             );
 
             _movements.Add(movement);
-
-            AddDomainEvent(new StockDecreasedEvent(Id, ProductSkuId, quantity));
         }
 
         /// <summary>
         /// Ajuste de estoque (balanço). Seta a quantidade física real contada em inventário.
         /// </summary>
-        public void Balance(int newQuantity, string reason, Guid? referenceId = null)
+        public void Balance(decimal newQuantity, string reason, Guid? referenceId = null)
         {
             if (newQuantity < 0)
                 throw new InvalidOperationException("Estoque não pode ser negativo.");
@@ -85,8 +79,6 @@ namespace Avvo.Domain.Entities
             Quantity = newQuantity;
 
             var movement = new StockMovement(
-                Guid.NewGuid(),
-                DateTime.UtcNow,
                 MovementType.Balance,
                 difference,
                 reason,
@@ -94,13 +86,6 @@ namespace Avvo.Domain.Entities
             );
 
             _movements.Add(movement);
-
-            AddDomainEvent(new StockBalancedEvent(Id, ProductSkuId, newQuantity, difference));
         }
     }
-
-    // Eventos de domínio
-    public record StockIncreasedEvent(Guid StockId, Guid ProductSkuId, int Quantity) : IDomainEvent;
-    public record StockDecreasedEvent(Guid StockId, Guid ProductSkuId, int Quantity) : IDomainEvent;
-    public record StockBalancedEvent(Guid StockId, Guid ProductSkuId, int NewQuantity, int Difference) : IDomainEvent;
 }

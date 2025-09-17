@@ -135,4 +135,19 @@ public static class StringExtensions
 
         return value.SubstringSafe(0, length);
     }
+
+    /// <summary>
+    /// Remove todos os caracteres não numéricos da string.
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns></returns>
+    public static string OnlyNumbers(this string text)
+    {
+        if (string.IsNullOrEmpty(text))
+            return text;
+
+        string ret = System.Text.RegularExpressions.Regex.Replace(text, @"[^0-9]+?", string.Empty);
+
+        return ret != null ? ret.Trim() : ret!;
+    }
 }

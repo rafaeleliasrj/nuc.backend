@@ -1,11 +1,9 @@
-using System;
-
 namespace Avvo.Core.Commons.Interfaces;
 
 /// <summary>
-/// Define as propriedades básicas para entidades no sistema Avvo.
+/// Define propriedades para entidades.
 /// </summary>
-public interface IBaseEntity
+interface IBaseEntity
 {
     /// <summary>
     /// Obtém o identificador único da entidade.

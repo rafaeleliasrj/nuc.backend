@@ -1,8 +1,5 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Linq;
 
 namespace Avvo.Core.Host.DependencyGroups
 {
@@ -16,12 +13,12 @@ namespace Avvo.Core.Host.DependencyGroups
                 .Where(p => serviceDependencyType.IsAssignableFrom(p) && !p.IsInterface)
                 .ToList();
 
-            serviceDependencies.ForEach(type =>
-            {
-                logger.LogInformation("Registering service dependency: {0}", type.Name);
-                var instance = (IDependencyGroup)Activator.CreateInstance(type);
-                instance.Register(logger, serviceCollection);
-            });
+            if (serviceDependencies.Count != 0)
+                serviceDependencies.ForEach(type =>
+                {
+                    var instance = (IDependencyGroup)Activator.CreateInstance(type);
+                    instance.Register(logger, serviceCollection);
+                });
         }
     }
 }

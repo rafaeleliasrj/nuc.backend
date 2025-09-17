@@ -25,7 +25,12 @@ public class UserIdentity : IUserIdentity
     /// <summary>
     /// Obtém o identificador único da assinatura (tenant) do usuário.
     /// </summary>
-    public Guid SubscriptionId { get; set; }
+    public Guid TenantId { get; set; }
+
+    /// <summary>
+    /// Obtém o identificador único da empresa.
+    /// </summary>
+    public Guid BusinessId { get; set; }
 
     /// <summary>
     /// Obtém a coleção de escopos atribuídos ao usuário.

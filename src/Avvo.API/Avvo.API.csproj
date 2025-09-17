@@ -18,6 +18,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Avvo.Core\Avvo.Core.csproj" />
+    <ProjectReference Include="..\Avvo.Application\Avvo.Application.csproj" />
+    <ProjectReference Include="..\Avvo.Infra\Avvo.Infra.csproj" />
   </ItemGroup>
 
 </Project>

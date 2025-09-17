@@ -23,7 +23,12 @@ public interface IUserIdentity
     /// <summary>
     /// Obtém o identificador único da assinatura (tenant) do usuário.
     /// </summary>
-    Guid SubscriptionId { get; set; }
+    Guid TenantId { get; set; }
+
+    /// <summary>
+    /// Obtém o identificador único da empresa.
+    /// </summary>
+    Guid BusinessId { get; set; }
 
     /// <summary>
     /// Obtém a coleção de escopos atribuídos ao usuário.

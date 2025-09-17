@@ -45,7 +45,7 @@ namespace Avvo.Core.Host.Extensions
 
             try
             {
-                identity.SubscriptionId = Guid.Parse(claims.Where(c => c.Type.Contains("SubscriptionId")).Select(q => q.Value).FirstOrDefault());
+                identity.TenantId = Guid.Parse(claims.Where(c => c.Type.Contains("SubscriptionId")).Select(q => q.Value).FirstOrDefault());
             }
             catch (Exception ex)
             {
