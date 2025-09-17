@@ -1,0 +1,32 @@
+{
+  // Use o IntelliSense para saber mais sobre os atributos possíveis.
+  // Focalizar para exibir as descrições dos atributos existentes.
+  // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+  "configurations": [
+    {
+      "name": "Service Local",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/Avvo.API/bin/Debug/net8.0/Avvo.API.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/Avvo.API/",
+      "stopAtEntry": false,
+      "launchBrowser": {
+        "enabled": true,
+        "args": "${auto-detect-url}",
+        "windows": {
+          "command": "cmd.exe",
+          "args": "/C start ${auto-detect-url}/swagger"
+        },
+        "osx": {
+          "command": "open"
+        },
+        "linux": {
+          "command": "xdg-open"
+        }
+      }
+      //   "envFile": "${workspaceFolder}/src/Avvo.API/.env"
+    }
+  ]
+}
