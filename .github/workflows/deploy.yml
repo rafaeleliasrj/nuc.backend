@@ -1,40 +1,11 @@
-name: Deploy NUC Stack
+name: Deploy to Coolify
 
-on:
-  push:
-    branches: [ main ]
+on: [push]
 
 jobs:
-  deploy-backend:
-    name: Deploy Backend
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Deploy Backend via SSH
-        uses: appleboy/ssh-action@v1.2.2
-        with:
-          host: ${{ secrets.NUC_HOST }}
-          username: ${{ secrets.NUC_USER }}
-          key: ${{ secrets.NUC_SSH_KEY }}
-          script: |
-            echo "Atualizando backend..."
-            cd /home/alpine/backend
-
-            # Puxa alterações do Git e força reset do branch
-            git fetch --all
-            git reset --hard origin/main
-
-            # Reconstruir imagem do API sem cache e recriar container
-            docker-compose -f /home/alpine/docker-compose.yml build --no-cache api
-            docker-compose -f /home/alpine/docker-compose.yml up -d --force-recreate api
-
-            echo "Removendo containers parados..."
-            docker container prune -f
-
-            echo "Removendo imagens antigas do backend..."
-            # Remove todas as imagens do backend que não são a última build
-            docker images alpine-api -q | sort -r | tail -n +2 | xargs -r docker rmi -f
-
-            echo "Deploy finalizado. Apenas a imagem mais recente do backend permanece!"
+    - name: Deploy para Coolify
+      run: |
+        curl -k -X POST "${{ secrets.COOLIFY_WEBHOOK }}" -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}"
