@@ -7,6 +7,8 @@ WORKDIR /app
 COPY ./src/Avvo.API/*.csproj ./Avvo.API/
 COPY ./src/Avvo.Core/*.csproj ./Avvo.Core/
 COPY ./src/Avvo.Domain/*.csproj ./Avvo.Domain/
+COPY ./src/Avvo.Infra/*.csproj ./Avvo.Infra/
+COPY ./src/Avvo.Application/*.csproj ./Avvo.Application/
 
 RUN dotnet restore ./Avvo.API/Avvo.API.csproj
 
@@ -25,7 +27,7 @@ WORKDIR /app
 COPY --from=build /app/out .
 
 # Porta que a API vai expor
-EXPOSE 5000
+EXPOSE 8080
 
 # Comando para rodar a API
 ENTRYPOINT ["dotnet", "Avvo.API.dll"]

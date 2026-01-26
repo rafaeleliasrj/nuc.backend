@@ -5,6 +5,6 @@ services:
       dockerfile: ./src/Avvo.API/Dockerfile
     container_name: nuc_api
     ports:
-      - "5000:5000"   # acesso externo
+      - "8080:8080" # acesso externo
     depends_on:
       - db
