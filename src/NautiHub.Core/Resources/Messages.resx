@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Mensagens de Embarcação -->
+  <data name="Boat_Already_Exists" xml:space="preserve">
+    <value>Já existe uma embarcação cadastrada com essa numeração.</value>
+  </data>
+  <data name="Boat_Not_Found" xml:space="preserve">
+    <value>Embarcação não encontrada.</value>
+  </data>
+  
+  <!-- Mensagens de Imagem -->
+  <data name="BoatImage_Not_Found" xml:space="preserve">
+    <value>Empresa já não possui imagem.</value>
+  </data>
+  
+  <!-- Mensagens de Autenticação -->
+  <data name="Auth_User_Created" xml:space="preserve">
+    <value>Usuário criado com sucesso.</value>
+  </data>
+  <data name="Auth_User_Logged_In" xml:space="preserve">
+    <value>Login realizado com sucesso.</value>
+  </data>
+  <data name="Auth_Account_Locked" xml:space="preserve">
+    <value>Conta bloqueada. Tente novamente mais tarde.</value>
+  </data>
+  <data name="Auth_Invalid_Credentials" xml:space="preserve">
+    <value>E-mail ou senha inválidos.</value>
+  </data>
+  <data name="Auth_Email_Password_Required" xml:space="preserve">
+    <value>Email e senha são obrigatórios.</value>
+  </data>
+  <data name="Auth_Email_In_Use" xml:space="preserve">
+    <value>Email já está em uso.</value>
+  </data>
+  <data name="Auth_User_Not_Found" xml:space="preserve">
+    <value>Usuário não encontrado.</value>
+  </data>
+  <data name="Auth_Account_Not_Allowed" xml:space="preserve">
+    <value>Conta não permitida para login.</value>
+  </data>
+  <data name="Auth_Logout_Success" xml:space="preserve">
+    <value>Logout realizado com sucesso.</value>
+  </data>
+  <data name="Auth_Logout_Error" xml:space="preserve">
+    <value>Erro ao fazer logout.</value>
+  </data>
+  <data name="Auth_Add_Role_Success" xml:space="preserve">
+    <value>Usuário adicionado à role com sucesso.</value>
+  </data>
+  <data name="Auth_Add_Role_Error" xml:space="preserve">
+    <value>Erro ao adicionar usuário à role.</value>
+  </data>
+  
+  <!-- Mensagens Gerais -->
+  <data name="Error_Internal_Server" xml:space="preserve">
+    <value>Erro interno no servidor</value>
+  </data>
+  <data name="Error_Registering_User" xml:space="preserve">
+    <value>Erro ao registrar usuário</value>
+  </data>
+  <data name="Error_Login" xml:space="preserve">
+    <value>Erro ao fazer login</value>
+  </data>
+  <data name="Error_Internal_Server_Generic" xml:space="preserve">
+    <value>Erro interno do servidor</value>
+  </data>
+    <data name="Payment_Not_Found" xml:space="preserve">
+        <value>Pagamento não encontrado</value>
+        <comment>Mensagem de erro quando pagamento não é encontrado</comment>
+    </data>
+    <data name="Payment_QRCode_Not_Allowed" xml:space="preserve">
+        <value>Pagamento não permite geração de QR Code Pix</value>
+        <comment>Mensagem de erro quando pagamento não permite QR Code</comment>
+    </data>
+    <data name="Payment_No_Asaas_Id" xml:space="preserve">
+        <value>Pagamento não possui ID do Asaas</value>
+        <comment>Mensagem de erro quando pagamento não tem ID Asaas</comment>
+    </data>
+    <data name="Payment_Asaas_Error" xml:space="preserve">
+        <value>Erro ao buscar QR Code no Asaas</value>
+        <comment>Mensagem de erro genérico ao comunicar com Asaas</comment>
+    </data>
+    <data name="Payment_General_Error" xml:space="preserve">
+        <value>Erro interno ao processar pagamento</value>
+        <comment>Mensagem de erro genérico em operações de pagamento</comment>
+    </data>
+    <data name="Payment_Booking_Not_Found" xml:space="preserve">
+        <value>Reserva não encontrada</value>
+        <comment>Mensagem de erro quando reserva não é encontrada</comment>
+    </data>
+    <data name="Payment_List_Error" xml:space="preserve">
+        <value>Erro interno ao listar pagamentos</value>
+        <comment>Mensagem de erro ao listar pagamentos</comment>
+    </data>
+    <data name="Payment_Get_Status_Error" xml:space="preserve">
+        <value>Erro interno ao obter status do pagamento</value>
+        <comment>Mensagem de erro ao obter status de pagamento</comment>
+    </data>
+    
+    <!-- Mensagens de Embarcação -->
+    <data name="Boat_Name_Required" xml:space="preserve">
+        <value>Nome da embarcação é obrigatório.</value>
+        <comment>Validação de nome obrigatório</comment>
+    </data>
+    <data name="Boat_Name_Too_Long" xml:space="preserve">
+        <value>Nome da embarcação não pode exceder 200 caracteres.</value>
+        <comment>Validação de tamanho máximo do nome</comment>
+    </data>
+    <data name="Boat_Description_Required" xml:space="preserve">
+        <value>Descrição da embarcação é obrigatória.</value>
+        <comment>Validação de descrição obrigatória</comment>
+    </data>
+    <data name="Boat_Description_Too_Long" xml:space="preserve">
+        <value>Descrição da embarcação não pode exceder 2000 caracteres.</value>
+        <comment>Validação de tamanho máximo da descrição</comment>
+    </data>
+    <data name="Boat_Document_Required" xml:space="preserve">
+        <value>Documento da embarcação é obrigatório.</value>
+        <comment>Validação de documento obrigatório</comment>
+    </data>
+    <data name="Boat_Document_Too_Long" xml:space="preserve">
+        <value>Documento da embarcação não pode exceder 50 caracteres.</value>
+        <comment>Validação de tamanho máximo do documento</comment>
+    </data>
+    <data name="Boat_Capacity_Invalid" xml:space="preserve">
+        <value>Capacidade deve ser maior que zero.</value>
+        <comment>Validação de valor mínimo da capacidade</comment>
+    </data>
+    <data name="Boat_Capacity_Too_High" xml:space="preserve">
+        <value>Capacidade não pode exceder 1000 pessoas.</value>
+        <comment>Validação de limite máximo da capacidade</comment>
+    </data>
+    <data name="Boat_Price_Invalid" xml:space="preserve">
+        <value>Preço por pessoa deve ser maior que zero.</value>
+        <comment>Validação de valor mínimo do preço</comment>
+    </data>
+    <data name="Boat_Price_Too_High" xml:space="preserve">
+        <value>Preço por pessoa não pode exceder R$ 100.000,00.</value>
+        <comment>Validação de limite máximo do preço</comment>
+    </data>
+    <data name="Boat_City_Required" xml:space="preserve">
+        <value>Cidade da localização é obrigatória.</value>
+        <comment>Validação de cidade obrigatória</comment>
+    </data>
+    <data name="Boat_City_Too_Long" xml:space="preserve">
+        <value>Cidade da localização não pode exceder 100 caracteres.</value>
+        <comment>Validação de tamanho máximo da cidade</comment>
+    </data>
+    <data name="Boat_State_Required" xml:space="preserve">
+        <value>Estado da localização é obrigatório.</value>
+        <comment>Validação de estado obrigatório</comment>
+    </data>
+    <data name="Boat_State_Invalid_Format" xml:space="preserve">
+        <value>Estado deve ter exatamente 2 caracteres.</value>
+        <comment>Validação de formato do estado</comment>
+    </data>
+    <data name="Boat_Only_Approved_Can_Be_Active" xml:space="preserve">
+        <value>Apenas embarcações aprovadas podem ser ativadas.</value>
+        <comment>Regra de negócio de ativação</comment>
+    </data>
+    <data name="Boat_Already_Approved" xml:space="preserve">
+        <value>Embarcação já está aprovada.</value>
+        <comment>Validação de status</comment>
+    </data>
+    <data name="Boat_Cannot_Reject_Approved" xml:space="preserve">
+        <value>Não é possível rejeitar uma embarcação já aprovada.</value>
+        <comment>Validação de transição de status</comment>
+    </data>
+    <data name="Boat_Only_Approved_Can_Be_Suspended" xml:space="preserve">
+        <value>Apenas embarcações aprovadas podem ser suspensas.</value>
+        <comment>Regra de negócio de suspensão</comment>
+    </data>
+    <data name="Boat_Only_Suspended_Can_Be_Reactived" xml:space="preserve">
+        <value>Apenas embarcações suspensas podem ser reativadas.</value>
+        <comment>Regra de negócio de reativação</comment>
+    </data>
+    <data name="Boat_Not_Found_Update" xml:space="preserve">
+        <value>Registro não encontrado.</value>
+        <comment>Mensagem de atualização não encontrada</comment>
+    </data>
+    <data name="Boat_Not_Found_Get" xml:space="preserve">
+        <value>Registro não encontrado.</value>
+        <comment>Mensagem de busca não encontrada</comment>
+    </data>
+    
+    <!-- Mensagens de Imagem -->
+    <data name="BoatImage_Invalid_Image" xml:space="preserve">
+        <value>Imagem inválida.</value>
+        <comment>Validação de imagem inválida</comment>
+    </data>
+    <data name="BoatImage_Cannot_Decode" xml:space="preserve">
+        <value>Não foi possível decodificar a imagem base64.</value>
+        <comment>Erro de decodificação de imagem</comment>
+    </data>
+    <data name="BoatImage_Cannot_Resize" xml:space="preserve">
+        <value>Não foi possível redimensionar a imagem.</value>
+        <comment>Erro de redimensionamento de imagem</comment>
+    </data>
+    <data name="BoatImage_No_Codec" xml:space="preserve">
+        <value>Nenhum codec válido encontrado para salvar a imagem.</value>
+        <comment>Erro técnico de codec</comment>
+    </data>
+    <data name="BoatImage_At_Least_One" xml:space="preserve">
+        <value>É obrigatório informar ao menos uma imagem.</value>
+        <comment>Validação de quantidade mínima de imagens</comment>
+    </data>
+    <data name="BoatImage_Cannot_Be_Empty" xml:space="preserve">
+        <value>A imagem não pode estar vazia.</value>
+        <comment>Validação de imagem vazia</comment>
+    </data>
+    <data name="BoatImage_Invalid_Format" xml:space="preserve">
+        <value>Imagem não é válida. O formato esperado é data:image/*.</value>
+        <comment>Validação de formato de imagem</comment>
+    </data>
+    
+    <!-- Mensagens de Autenticação -->
+    <data name="Auth_User_Not_Identified" xml:space="preserve">
+        <value>Usuário não identificado</value>
+        <comment>Mensagem de usuário não identificado</comment>
+    </data>
+    <data name="Auth_User_Invalid" xml:space="preserve">
+        <value>O usuário não é válido.</value>
+        <comment>Mensagem de usuário inválido</comment>
+    </data>
+    
+    <!-- Mensagens de Pagamento -->
+    <data name="Payment_Create_Error" xml:space="preserve">
+        <value>Erro ao criar pagamento</value>
+        <comment>Erro genérico de criação de pagamento</comment>
+    </data>
+    <data name="Payment_Create_Asaas_Error" xml:space="preserve">
+        <value>Erro ao criar pagamento no Asaas</value>
+        <comment>Erro na API do Asaas ao criar pagamento</comment>
+    </data>
+    <data name="Payment_Create_Internal_Error" xml:space="preserve">
+        <value>Erro interno ao criar pagamento</value>
+        <comment>Erro interno do servidor ao criar pagamento</comment>
+    </data>
+    <data name="Payment_Token_Error" xml:space="preserve">
+        <value>Erro na tokenização: {0}</value>
+        <comment>Erro na tokenização de cartão</comment>
+    </data>
+    <data name="Payment_Card_Create_Error" xml:space="preserve">
+        <value>Erro ao criar pagamento com cartão</value>
+        <comment>Erro genérico de pagamento com cartão</comment>
+    </data>
+    <data name="Payment_Card_Asaas_Error" xml:space="preserve">
+        <value>Erro ao criar pagamento com cartão no Asaas</value>
+        <comment>Erro na API do Asaas ao criar pagamento com cartão</comment>
+    </data>
+    <data name="Payment_Card_Internal_Error" xml:space="preserve">
+        <value>Erro interno ao criar pagamento com cartão</value>
+        <comment>Erro interno ao criar pagamento com cartão</comment>
+    </data>
+    <data name="Payment_Get_Error" xml:space="preserve">
+        <value>Pagamento não encontrado</value>
+        <comment>Erro genérico de pagamento não encontrado</comment>
+    </data>
+    <data name="Payment_Get_Asaas_Error" xml:space="preserve">
+        <value>Erro ao buscar pagamento {0} no Asaas</value>
+        <comment>Erro na API do Asaas ao buscar pagamento</comment>
+    </data>
+    <data name="Payment_Get_Internal_Error" xml:space="preserve">
+        <value>Erro interno ao buscar pagamento</value>
+        <comment>Erro interno ao buscar pagamento</comment>
+    </data>
+    <data name="Payment_QRCode_Error" xml:space="preserve">
+        <value>QR Code não encontrado</value>
+        <comment>Erro genérico de QR Code não encontrado</comment>
+    </data>
+    <data name="Payment_QRCode_Asaas_Error" xml:space="preserve">
+        <value>Erro ao buscar QR Code {0} no Asaas</value>
+        <comment>Erro na API do Asaas ao buscar QR Code</comment>
+    </data>
+    <data name="Payment_QRCode_Internal_Error" xml:space="preserve">
+        <value>Erro interno ao buscar QR Code</value>
+        <comment>Erro interno ao buscar QR Code</comment>
+    </data>
+    <data name="Payment_Boleto_Error" xml:space="preserve">
+        <value>Boleto não encontrado</value>
+        <comment>Erro genérico de boleto não encontrado</comment>
+    </data>
+    <data name="Payment_Boleto_Asaas_Error" xml:space="preserve">
+        <value>Erro ao buscar boleto {0} no Asaas</value>
+        <comment>Erro na API do Asaas ao buscar boleto</comment>
+    </data>
+    <data name="Payment_Boleto_Internal_Error" xml:space="preserve">
+        <value>Erro interno ao buscar boleto</value>
+        <comment>Erro interno ao buscar boleto</comment>
+    </data>
+    <data name="Payment_Refund_Error" xml:space="preserve">
+        <value>Estorno não realizado</value>
+        <comment>Erro genérico de estorno</comment>
+    </data>
+    <data name="Payment_Refund_Asaas_Error" xml:space="preserve">
+        <value>Erro ao estornar pagamento {0} no Asaas</value>
+        <comment>Erro na API do Asaas ao estornar pagamento</comment>
+    </data>
+    <data name="Payment_Refund_Internal_Error" xml:space="preserve">
+        <value>Erro interno ao estornar pagamento</value>
+        <comment>Erro interno ao estornar pagamento</comment>
+    </data>
+    <data name="Payment_Cannot_Delete_Paid" xml:space="preserve">
+        <value>Cannot delete a paid payment</value>
+        <comment>Regra de negócio de exclusão de pagamento pago</comment>
+    </data>
+    
+    <!-- Mensagens de Passeio Agendado -->
+    <data name="ScheduledTour_Not_Found" xml:space="preserve">
+        <value>Passeio agendado {0} não encontrado</value>
+        <comment>Mensagem de passeio não encontrado</comment>
+    </data>
+    <data name="ScheduledTour_Conflict" xml:space="preserve">
+        <value>Já existe um passeio agendado para este horário</value>
+        <comment>Validação de conflito de horário</comment>
+    </data>
+    <data name="ScheduledTour_Cannot_Delete_Completed" xml:space="preserve">
+        <value>Não é possível excluir um passeio já concluído</value>
+        <comment>Regra de negócio de exclusão</comment>
+    </data>
+    <data name="ScheduledTour_Cannot_Edit_Status" xml:space="preserve">
+        <value>Este passeio não pode ser editado no status atual</value>
+        <comment>Regra de negócio de edição</comment>
+    </data>
+    <data name="ScheduledTour_Start_After_End" xml:space="preserve">
+        <value>Hora de início deve ser anterior à hora de término</value>
+        <comment>Validação de lógica de horário</comment>
+    </data>
+    <data name="ScheduledTour_Only_Scheduled_Can_Start" xml:space="preserve">
+        <value>Apenas passeios agendados podem ser iniciados.</value>
+        <comment>Regra de negócio de início</comment>
+    </data>
+    <data name="ScheduledTour_Only_Started_Can_Complete" xml:space="preserve">
+        <value>Apenas passeios em andamento podem ser concluídos.</value>
+        <comment>Regra de negócio de conclusão</comment>
+    </data>
+    <data name="ScheduledTour_Already_Canceled" xml:space="preserve">
+        <value>Passeio já está cancelado.</value>
+        <comment>Validação de status</comment>
+    </data>
+    <data name="ScheduledTour_Cannot_Cancel_Completed" xml:space="preserve">
+        <value>Não é possível cancelar um passeio já concluído.</value>
+        <comment>Regra de negócio de cancelamento</comment>
+    </data>
+    <data name="ScheduledTour_Only_Scheduled_Started_Can_Suspend" xml:space="preserve">
+        <value>Apenas passeios agendados ou em andamento podem ser suspensos.</value>
+        <comment>Regra de negócio de suspensão</comment>
+    </data>
+    <data name="ScheduledTour_Already_Suspended" xml:space="preserve">
+        <value>Passeio já está suspenso.</value>
+        <comment>Validação de status</comment>
+    </data>
+    <data name="ScheduledTour_Only_Suspended_Can_Reactive" xml:space="preserve">
+        <value>Apenas passeios suspensos podem ser reativados.</value>
+        <comment>Regra de negócio de reativação</comment>
+    </data>
+    <data name="ScheduledTour_Seats_Negative" xml:space="preserve">
+        <value>Número de assentos disponíveis não pode ser negativo.</value>
+        <comment>Validação de valor</comment>
+    </data>
+    <data name="ScheduledTour_Notes_Too_Long" xml:space="preserve">
+        <value>Observações não podem exceder 1000 caracteres.</value>
+        <comment>Validação de tamanho</comment>
+    </data>
+    <data name="ScheduledTour_Boat_Required" xml:space="preserve">
+        <value>Identificador do barco é obrigatório.</value>
+        <comment>Validação de campo obrigatório</comment>
+    </data>
+    <data name="ScheduledTour_Date_Past" xml:space="preserve">
+        <value>Data do passeio não pode ser anterior à data atual.</value>
+        <comment>Validação de data</comment>
+    </data>
+    <data name="ScheduledTour_Seats_Too_High" xml:space="preserve">
+        <value>Número de assentos disponíveis não pode exceder 1000.</value>
+        <comment>Validação de limite</comment>
+    </data>
+    <data name="ScheduledTour_Status_Not_Implemented" xml:space="preserve">
+        <value>Atualização de status não implementada.</value>
+        <comment>Mensagem de funcionalidade não implementada</comment>
+    </data>
+    
+    <!-- Mensagens de Avaliação -->
+    <data name="Review_Already_Exists" xml:space="preserve">
+        <value>Já existe uma avaliação para esta reserva</value>
+        <comment>Validação de duplicidade de avaliação</comment>
+    </data>
+    <data name="Review_Not_Found" xml:space="preserve">
+        <value>Avaliação {0} não encontrada</value>
+        <comment>Mensagem de avaliação não encontrada</comment>
+    </data>
+    <data name="Review_Deleted_Success" xml:space="preserve">
+        <value>Avaliação {0} excluída com sucesso</value>
+        <comment>Mensagem de sucesso na exclusão</comment>
+    </data>
+    <data name="Review_Delete_Error" xml:space="preserve">
+        <value>Erro ao excluir avaliação {0}</value>
+        <comment>Erro na exclusão de avaliação</comment>
+    </data>
+    <data name="Review_Updated_Success" xml:space="preserve">
+        <value>Avaliação {0} atualizada com sucesso</value>
+        <comment>Mensagem de sucesso na atualização</comment>
+    </data>
+    <data name="Review_Update_Error" xml:space="preserve">
+        <value>Erro ao atualizar avaliação {0}</value>
+        <comment>Erro na atualização de avaliação</comment>
+    </data>
+    
+    <!-- Mensagens de Anúncio -->
+    <data name="Advertisement_Already_Approved" xml:space="preserve">
+        <value>Anúncio já está aprovado.</value>
+        <comment>Validação de status</comment>
+    </data>
+    <data name="Advertisement_Cannot_Approve_Canceled" xml:space="preserve">
+        <value>Não é possível aprovar um anúncio cancelado.</value>
+        <comment>Regra de negócio de aprovação</comment>
+    </data>
+    <data name="Advertisement_Cannot_Reject_Approved" xml:space="preserve">
+        <value>Não é possível rejeitar um anúncio já aprovado.</value>
+        <comment>Regra de negócio de rejeição</comment>
+    </data>
+    <data name="Advertisement_Cannot_Reject_Canceled" xml:space="preserve">
+        <value>Não é possível rejeitar um anúncio cancelado.</value>
+        <comment>Regra de negócio de rejeição</comment>
+    </data>
+    <data name="Advertisement_Only_Approved_Can_Suspend" xml:space="preserve">
+        <value>Apenas anúncios aprovados podem ser suspensos.</value>
+        <comment>Regra de negócio de suspensão</comment>
+    </data>
+    <data name="Advertisement_Only_Suspended_Can_Reactive" xml:space="preserve">
+        <value>Apenas anúncios suspensos podem ser reativados.</value>
+        <comment>Regra de negócio de reativação</comment>
+    </data>
+    <data name="Advertisement_Only_Approved_Can_Pause" xml:space="preserve">
+        <value>Apenas anúncios aprovados podem ser pausados.</value>
+        <comment>Regra de negócio de pausa</comment>
+    </data>
+    <data name="Advertisement_Only_Paused_Can_Unpause" xml:space="preserve">
+        <value>Apenas anúncios pausados podem ser despausados.</value>
+        <comment>Regra de negócio de despausa</comment>
+    </data>
+    <data name="Advertisement_Already_Canceled" xml:space="preserve">
+        <value>Anúncio já está cancelado.</value>
+        <comment>Validação de status</comment>
+    </data>
+    <data name="Advertisement_Cannot_Cancel_Completed" xml:space="preserve">
+        <value>Não é possível cancelar um anúncio já concluído.</value>
+        <comment>Regra de negócio de cancelamento</comment>
+    </data>
+    <data name="Advertisement_Only_Approved_Paused_Can_Complete" xml:space="preserve">
+        <value>Apenas anúncios aprovados ou pausados podem ser concluídos.</value>
+        <comment>Regra de negócio de conclusão</comment>
+    </data>
+    <data name="Advertisement_ScheduledTour_Required" xml:space="preserve">
+        <value>Identificador do passeio agendado é obrigatório.</value>
+        <comment>Validação de campo</comment>
+    </data>
+    <data name="Advertisement_Customer_Required" xml:space="preserve">
+        <value>Identificador do cliente é obrigatório.</value>
+        <comment>Validação de campo</comment>
+    </data>
+    <data name="Advertisement_Seats_Invalid" xml:space="preserve">
+        <value>Número de assentos reservados deve ser maior que zero.</value>
+        <comment>Validação de valor</comment>
+    </data>
+    <data name="Advertisement_Seats_Too_High" xml:space="preserve">
+        <value>Número de assentos reservados não pode exceder 1000.</value>
+        <comment>Validação de limite</comment>
+    </data>
+    <data name="Advertisement_Total_Invalid" xml:space="preserve">
+        <value>Preço total deve ser maior que zero.</value>
+        <comment>Validação de valor</comment>
+    </data>
+    <data name="Advertisement_Total_Too_High" xml:space="preserve">
+        <value>Preço total não pode exceder R$ 1.000.000,00.</value>
+        <comment>Validação de limite</comment>
+    </data>
+    
+    <!-- Mensagens de Chat -->
+    <data name="ChatMessage_Not_Found" xml:space="preserve">
+        <value>Mensagem de chat {0} não encontrada</value>
+        <comment>Mensagem de chat não encontrada</comment>
+    </data>
+    <data name="ChatMessage_Deleted_Success" xml:space="preserve">
+        <value>Mensagem de chat {0} excluída com sucesso</value>
+        <comment>Sucesso na exclusão de mensagem</comment>
+    </data>
+    <data name="ChatMessage_Marked_Read" xml:space="preserve">
+        <value>Mensagem marcada como lida</value>
+        <comment>Mensagem ao marcar como lida</comment>
+    </data>
+    <data name="ChatMessage_Marked_Unread" xml:space="preserve">
+        <value>Mensagem marcada como não lida</value>
+        <comment>Mensagem ao desmarcar como lida</comment>
+    </data>
+    
+    <!-- Mensagens de Webhook -->
+    <data name="Webhook_Invalid_Token" xml:space="preserve">
+        <value>Token de webhook inválido: {0}</value>
+        <comment>Log de aviso de token inválido</comment>
+    </data>
+    <data name="Webhook_Received" xml:space="preserve">
+        <value>Webhook recebido: {0} - {1}</value>
+        <comment>Log informativo de webhook recebido</comment>
+    </data>
+    <data name="Webhook_Process_Error" xml:space="preserve">
+        <value>Erro ao processar webhook do Asaas</value>
+        <comment>Log de erro + mensagem de retorno</comment>
+    </data>
+    <data name="Webhook_Internal_Error" xml:space="preserve">
+        <value>Erro interno ao processar webhook</value>
+        <comment>Mensagem de erro para usuário</comment>
+    </data>
+    <data name="Webhook_Processing" xml:space="preserve">
+        <value>Processando webhook: {0} para pagamento {1}</value>
+        <comment>Log de processamento</comment>
+    </data>
+    <data name="Webhook_No_Payment_Data" xml:space="preserve">
+        <value>Webhook sem dados de pagamento: {0}</value>
+        <comment>Log de ausência de dados</comment>
+    </data>
+    <data name="Webhook_Processed_Success" xml:space="preserve">
+        <value>Webhook processado com sucesso: {0} -> {1}</value>
+        <comment>Log de sucesso</comment>
+    </data>
+    
+    <!-- Mensagens Gerais de Erro -->
+    <data name="Error_Problem_Request" xml:space="preserve">
+        <value>Problema na Requisição</value>
+        <comment>Título padrão de erro</comment>
+    </data>
+    <data name="Error_Not_Authorized_Title" xml:space="preserve">
+        <value>Não Autorizado</value>
+        <comment>Título de não autorizado</comment>
+    </data>
+    <data name="Error_Not_Authorized_Message" xml:space="preserve">
+        <value>Você não está autorizado a acessar este recurso</value>
+        <comment>Mensagem de não autorizado</comment>
+    </data>
+    <data name="Error_Forbidden_Title" xml:space="preserve">
+        <value>Operação Proibida</value>
+        <comment>Título de proibido</comment>
+    </data>
+    <data name="Error_Forbidden_Message" xml:space="preserve">
+        <value>Você não tem permissão para realizar esta operação</value>
+        <comment>Mensagem de proibido</comment>
+    </data>
+    <data name="Error_Not_Found_Title" xml:space="preserve">
+        <value>Registro não encontrado</value>
+        <comment>Título de não encontrado</comment>
+    </data>
+    <data name="Error_Not_Found_Message" xml:space="preserve">
+        <value>Não foi possível encontrar o registro</value>
+        <comment>Mensagem de não encontrado</comment>
+    </data>
+    <data name="Error_Bad_Request_Title" xml:space="preserve">
+        <value>Não foi possível salvar</value>
+        <comment>Título de bad request</comment>
+    </data>
+    <data name="Error_Bad_Request_Message" xml:space="preserve">
+        <value>Não foi possível salvar a alteração.</value>
+        <comment>Mensagem de bad request</comment>
+    </data>
+    <data name="Error_Conflict_Title" xml:space="preserve">
+        <value>Registro já existe</value>
+        <comment>Título de conflito</comment>
+    </data>
+    <data name="Error_Conflict_Message" xml:space="preserve">
+        <value>Registro já existe na base</value>
+        <comment>Mensagem de conflito</comment>
+    </data>
+    <data name="Error_Validation_Title" xml:space="preserve">
+        <value>Ocorreram erros de validação.</value>
+        <comment>Título de erro de validação HTTP</comment>
+    </data>
+    <data name="Error_Max_Attempts_Reached" xml:space="preserve">
+        <value>Número máximo de tentativas atingido</value>
+        <comment>Validação de limite de tentativas</comment>
+    </data>
+    <data name="Error_Record_Not_Found" xml:space="preserve">
+        <value>Registro não encontrado.</value>
+        <comment>Mensagem genérica de registro não encontrado</comment>
+    </data>
+    
+    <!-- Mensagens de Configuração -->
+    <data name="Config_S3_Bucket_Required" xml:space="preserve">
+        <value>Variável de ambiente AWS_S3_BUCKET_NAME não informada.</value>
+        <comment>Erro de configuração S3</comment>
+    </data>
+    <data name="Config_Hangfire_User_Required" xml:space="preserve">
+        <value>Variável de ambiente HANGFIRE_USER não informada.</value>
+        <comment>Erro de configuração Hangfire</comment>
+    </data>
+    <data name="Config_Hangfire_Password_Required" xml:space="preserve">
+        <value>Variável de ambiente HANGFIRE_PASSWORD não informada.</value>
+        <comment>Erro de configuração Hangfire</comment>
+    </data>
+    
+    <!-- Mensagens de Segurança -->
+    <data name="Security_Path_Traversal" xml:space="preserve">
+        <value>Acesso ao arquivo não permitido: tentativa de path traversal detectada.</value>
+        <comment>Erro de segurança path traversal</comment>
+    </data>
+    <data name="Security_Invalid_File_Url" xml:space="preserve">
+        <value>Url de arquivo inválida!</value>
+        <comment>Validação de URL de arquivo</comment>
+    </data>
+    
+    <!-- Mensagens de Template -->
+    <data name="Template_Path_Null_Empty" xml:space="preserve">
+        <value>O caminho dos templates não pode ser nulo ou vazio.</value>
+        <comment>Validação de parâmetro inválido</comment>
+    </data>
+    <data name="Template_Not_Found" xml:space="preserve">
+        <value>Template não encontrado: {0}</value>
+        <comment>Erro de template não localizado</comment>
+    </data>
+    <data name="Template_Html_Empty" xml:space="preserve">
+        <value>HTML renderizado está vazio.</value>
+        <comment>Erro de processamento de template</comment>
+    </data>
+    
+    <!-- Mensagens de Cache -->
+    <data name="Cache_Redis_Not_Configured" xml:space="preserve">
+        <value>[GetCache] - Redis não está configurado. Retornando valor padrão.</value>
+        <comment>Log de warning do Redis</comment>
+    </data>
+    
+    <!-- Mensagens de IBGE -->
+    <data name="Ibge_No_States_Found" xml:space="preserve">
+        <value>[IBGE] Nenhum estado encontrado</value>
+        <comment>Log de warning do IBGE</comment>
+    </data>
+    <data name="Ibge_Error_States" xml:space="preserve">
+        <value>[IBGE] Erro ao consultar estados</value>
+        <comment>Log de erro do IBGE</comment>
+    </data>
+    <data name="Ibge_No_Cities_Found" xml:space="preserve">
+        <value>[IBGE] Nenhum município encontrado: {0}</value>
+        <comment>Log de warning do IBGE</comment>
+    </data>
+    <data name="Ibge_Error_Cities" xml:space="preserve">
+        <value>[IBGE] Erro ao consultar municípios. UF: {0}</value>
+        <comment>Log de erro do IBGE</comment>
+    </data>
+    
+    <!-- Mensagens de Database -->
+    <data name="Database_Commit_Error" xml:space="preserve">
+        <value>[Commit] - Erro ao persistir os dados no banco: {0}</value>
+        <comment>Log de erro de persistência</comment>
+    </data>
+    
+    <!-- Mensagens de Email -->
+    <data name="Email_Send_Success" xml:space="preserve">
+        <value>Email sent successfully!</value>
+        <comment>Log de sucesso no envio</comment>
+    </data>
+    <data name="Email_Send_Failed" xml:space="preserve">
+        <value>Failed to send email:</value>
+        <comment>Log de falha no envio</comment>
+    </data>
+    <data name="Email_Send_Error" xml:space="preserve">
+        <value>Error while sending email: {0}</value>
+        <comment>Log de erro no envio</comment>
+    </data>
+    <data name="Email_SendGrid_Key_Required" xml:space="preserve">
+        <value>A chave de api para o SendGrid não pode ser vazio.</value>
+        <comment>Validação de API key SendGrid</comment>
+    </data>
+    
+    <!-- Mensagens de Token -->
+    <data name="Token_Generate_Error" xml:space="preserve">
+        <value>Erro ao gerar token JWT para usuário: {0}</value>
+        <comment>Log de erro na geração de token</comment>
+    </data>
+    <data name="Token_Refresh_Error" xml:space="preserve">
+        <value>Erro ao gerar refresh token</value>
+        <comment>Log de erro na geração de refresh token</comment>
+    </data>
+    
+    <!-- Mensagens de Validação (Clientes/Request) -->
+    <data name="Validation_Page_Required" xml:space="preserve">
+        <value>Pagina é obrigatório.</value>
+        <comment>Validação de página obrigatória</comment>
+    </data>
+    <data name="Validation_PageSize_Required" xml:space="preserve">
+        <value>RegistrosPorPagina é obrigatório.</value>
+        <comment>Validação de página size obrigatório</comment>
+    </data>
+    <data name="Validation_Page_Greater_Zero" xml:space="preserve">
+        <value>Pagina deve ser maior do que zero.</value>
+        <comment>Validação de página maior que zero</comment>
+    </data>
+    <data name="Validation_PageSize_Greater_Zero" xml:space="preserve">
+        <value>RegistrosPorPagina deve ser maior do que zero.</value>
+        <comment>Validação de página size maior que zero</comment>
+    </data>
+    <data name="Validation_PageSize_Max_100" xml:space="preserve">
+        <value>RegistrosPorPagina deve ser menor ou igual a 100.</value>
+        <comment>Validação de página size máximo 100</comment>
+    </data>
+    <data name="Validation_Mark_Read_Request_Required" xml:space="preserve">
+        <value>Mark chat message read request is required</value>
+        <comment>Validação de request obrigatório</comment>
+    </data>
+    <data name="Validation_Invalid_Tour_Status" xml:space="preserve">
+        <value>Invalid scheduled tour status</value>
+        <comment>Validação de status inválido</comment>
+    </data>
+    <data name="Validation_Reason_Too_Long" xml:space="preserve">
+        <value>Reason cannot exceed 500 characters</value>
+        <comment>Validação de motivo muito longo</comment>
+    </data>
+    <data name="Validation_Tour_Date_Past" xml:space="preserve">
+        <value>Tour date cannot be in the past</value>
+        <comment>Validação de data no passado</comment>
+    </data>
+    <data name="Validation_Start_Time_Required" xml:space="preserve">
+        <value>Start time is required</value>
+        <comment>Validação de hora inicial obrigatória</comment>
+    </data>
+    <data name="Validation_End_Time_Required" xml:space="preserve">
+        <value>End time is required</value>
+        <comment>Validação de hora final obrigatória</comment>
+    </data>
+    <data name="Validation_End_Time_After_Start" xml:space="preserve">
+        <value>End time must be after start time</value>
+        <comment>Validação de hora final após inicial</comment>
+    </data>
+    <data name="Validation_Available_Seats_Greater_Zero" xml:space="preserve">
+        <value>Available seats must be greater than 0</value>
+        <comment>Validação de assentos maior que zero</comment>
+    </data>
+    <data name="Validation_Available_Seats_Max_1000" xml:space="preserve">
+        <value>Available seats cannot exceed 1000</value>
+        <comment>Validação de assentos máximo 1000</comment>
+    </data>
+    <data name="Validation_Notes_Too_Long" xml:space="preserve">
+        <value>Notes cannot exceed 1000 characters</value>
+        <comment>Validação de notas muito longas</comment>
+    </data>
+    <data name="Validation_Booking_Id_Required" xml:space="preserve">
+        <value>Booking ID is required</value>
+        <comment>Validação de ID de reserva obrigatório</comment>
+    </data>
+    <data name="Validation_Boat_Id_Required" xml:space="preserve">
+        <value>Boat ID is required</value>
+        <comment>Validação de ID de barco obrigatório</comment>
+    </data>
+    <data name="Validation_Customer_Id_Required" xml:space="preserve">
+        <value>Customer ID is required</value>
+        <comment>Validação de ID de cliente obrigatório</comment>
+    </data>
+    <data name="Validation_Rating_Between_1_5" xml:space="preserve">
+        <value>Rating must be between 1 and 5</value>
+        <comment>Validação de avaliação entre 1 e 5</comment>
+    </data>
+    <data name="Validation_Comment_Too_Long" xml:space="preserve">
+        <value>Comment cannot exceed 1000 characters</value>
+        <comment>Validação de comentário muito longo</comment>
+    </data>
+    <data name="Validation_Refund_Value_Greater_Zero" xml:space="preserve">
+        <value>Refund value must be greater than 0</value>
+        <comment>Validação de valor de estorno maior que zero</comment>
+    </data>
+    <data name="Validation_Refund_Reason_Required" xml:space="preserve">
+        <value>Refund reason is required</value>
+        <comment>Validação de motivo de estorno obrigatório</comment>
+    </data>
+    <data name="Validation_Refund_Reason_Too_Long" xml:space="preserve">
+        <value>Reason cannot exceed 500 characters</value>
+        <comment>Validação de motivo de estorno muito longo</comment>
+    </data>
+    
+    <!-- Mensagens de Validação - CNPJ/GTIN -->
+    <data name="Validation_Cnpj_Base_Invalid" xml:space="preserve">
+        <value>CNPJ base inválido para cálculo do DV</value>
+        <comment>Validação de CNPJ</comment>
+    </data>
+    <data name="Validation_Gtin_Digits_Only" xml:space="preserve">
+        <value>GTIN deve conter apenas dígitos.</value>
+        <comment>Validação de formato GTIN</comment>
+    </data>
+    <data name="Validation_Gtin_Invalid_Length" xml:space="preserve">
+        <value>Tamanho inválido. Deve conter 7, 11, 12 ou 13 dígitos.</value>
+        <comment>Validação de tamanho GTIN</comment>
+    </data>
+    
+    <!-- Mensagens de Validação - Data -->
+    <data name="Validation_Invalid_Year" xml:space="preserve">
+        <value>Ano inválido</value>
+        <comment>Validação de ano</comment>
+    </data>
+    <data name="Validation_Invalid_Month" xml:space="preserve">
+        <value>Mês inválido</value>
+        <comment>Validação de mês</comment>
+    </data>
+    <data name="Validation_Invalid_Day" xml:space="preserve">
+        <value>Dia inválido</value>
+        <comment>Validação de dia</comment>
+    </data>
+    
+    <!-- Mensagens de Sistema -->
+    <data name="System_Unknown_Error" xml:space="preserve">
+        <value>Erro desconhecido</value>
+        <comment>Erro genérico desconhecido</comment>
+    </data>
+    <data name="System_Expected_Decimal" xml:space="preserve">
+        <value>Expected decimal value.</value>
+        <comment>Erro de serialização decimal</comment>
+    </data>
+    <data name="System_Request_Id_Set" xml:space="preserve">
+        <value>RequestId definido como: {0}</value>
+        <comment>Log de debug do RequestId</comment>
+    </data>
+    
+    <!-- Mensagens de Split de Pagamento -->
+    <data name="PaymentSplit_Either_Fixed_Percentual" xml:space="preserve">
+        <value>Either fixed value or percentual value must be specified</value>
+        <comment>Validação de split de pagamento</comment>
+    </data>
+  
+  </root>

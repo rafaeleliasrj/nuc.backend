@@ -1,0 +1,52 @@
+{
+  // Oculta pastas desnecessárias no Explorer
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true,
+    "**/.vs": true,
+    "**/.git": true,
+    "**/logs": true
+  },
+
+  // Exclui essas pastas também das buscas
+  "search.exclude": {
+    "**/bin": true,
+    "**/obj": true,
+    "**/.vs": true,
+    "**/logs": true
+  },
+
+  // Formatação automática ao salvar
+  "editor.formatOnSave": true,
+
+  // Remove espaços em branco ao salvar
+  "files.trimTrailingWhitespace": true,
+
+  // Insere uma nova linha ao fim do arquivo
+  "files.insertFinalNewline": true,
+
+  // Usa indentação com espaços (não tab)
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+
+  // Padrão de finais de linha (LF para Unix/Linux/Mac, CRLF para Windows)
+  "files.eol": "\n",
+
+  // C# specific settings
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+
+  // C# specific linting
+  "csharp.format.enable": true,
+
+  // Ignora arquivos e pastas nas sugestões de autocomplete
+  "files.watcherExclude": {
+    "**/bin/**": true,
+    "**/obj/**": true
+  },
+
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  }
+}

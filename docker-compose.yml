@@ -2,7 +2,7 @@ services:
   api:
     build:
       context: ./backend
-      dockerfile: ./src/Avvo.API/Dockerfile
+      dockerfile: ./src/NautiHub.API/Dockerfile
     container_name: nuc_api
     ports:
       - "8080:8080" # acesso externo

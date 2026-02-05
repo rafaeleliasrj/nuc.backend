@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="src/NautiHub.API/NautiHub.API.csproj">
+    <BuildDependency Project="src/NautiHub.Domain/NautiHub.Domain.csproj" />
+  </Project>
+  <Project Path="src/NautiHub.Application/NautiHub.Application.csproj" />
+  <Project Path="src/NautiHub.Core/NautiHub.Core.csproj" />
+  <Project Path="src/NautiHub.CrossCutting/NautiHub.CrossCutting.csproj" />
+  <Project Path="src/NautiHub.Domain/NautiHub.Domain.csproj" />
+  <Project Path="src/NautiHub.Infrastructure/NautiHub.Infrastructure.csproj" />
+</Solution>

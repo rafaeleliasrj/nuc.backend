@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Boat Messages -->
+  <data name="Boat_Already_Exists" xml:space="preserve">
+    <value>A boat with this registration number already exists.</value>
+  </data>
+  <data name="Boat_Not_Found" xml:space="preserve">
+    <value>Boat not found.</value>
+  </data>
+  
+  <!-- Image Messages -->
+  <data name="BoatImage_Not_Found" xml:space="preserve">
+    <value>Company no longer has images.</value>
+  </data>
+  
+  <!-- Authentication Messages -->
+  <data name="Auth_User_Created" xml:space="preserve">
+    <value>User created successfully.</value>
+  </data>
+  <data name="Auth_User_Logged_In" xml:space="preserve">
+    <value>Login successful.</value>
+  </data>
+  <data name="Auth_Account_Locked" xml:space="preserve">
+    <value>Account locked. Please try again later.</value>
+  </data>
+  <data name="Auth_Invalid_Credentials" xml:space="preserve">
+    <value>Invalid email or password.</value>
+  </data>
+  <data name="Auth_Email_Password_Required" xml:space="preserve">
+    <value>Email and password are required.</value>
+  </data>
+  <data name="Auth_Email_In_Use" xml:space="preserve">
+    <value>Email is already in use.</value>
+  </data>
+  <data name="Auth_User_Not_Found" xml:space="preserve">
+    <value>User not found.</value>
+  </data>
+  <data name="Auth_Account_Not_Allowed" xml:space="preserve">
+    <value>Account not allowed for login.</value>
+  </data>
+  <data name="Auth_Logout_Success" xml:space="preserve">
+    <value>Logout successful.</value>
+  </data>
+  <data name="Auth_Logout_Error" xml:space="preserve">
+    <value>Error during logout.</value>
+  </data>
+  <data name="Auth_Add_Role_Success" xml:space="preserve">
+    <value>User added to role successfully.</value>
+  </data>
+    <data name="Auth_Add_Role_Error" xml:space="preserve">
+        <value>Erro ao adicionar usuário à role.</value>
+    </data>
+    <data name="Payment_Not_Found" xml:space="preserve">
+        <value>Payment not found.</value>
+    </data>
+    <data name="Payment_QRCode_Not_Allowed" xml:space="preserve">
+        <value>Payment does not allow Pix QR code generation.</value>
+    </data>
+    <data name="Payment_No_Asaas_Id" xml:space="preserve">
+        <value>Payment does not have Asaas ID.</value>
+    </data>
+    <data name="Payment_Asaas_Error" xml:space="preserve">
+        <value>Error getting QR code from Asaas.</value>
+    </data>
+    <data name="Payment_General_Error" xml:space="preserve">
+        <value>Internal error processing payment.</value>
+    </data>
+    <data name="Payment_Booking_Not_Found" xml:space="preserve">
+        <value>Booking not found.</value>
+    </data>
+    <data name="Payment_List_Error" xml:space="preserve">
+        <value>Internal error listing payments.</value>
+    </data>
+    <data name="Payment_Get_Status_Error" xml:space="preserve">
+        <value>Internal error getting payment status.</value>
+    </data>
+    
+    <!-- Boat Messages -->
+    <data name="Boat_Name_Required" xml:space="preserve">
+        <value>Boat name is required.</value>
+    </data>
+    <data name="Boat_Name_Too_Long" xml:space="preserve">
+        <value>Boat name cannot exceed 200 characters.</value>
+    </data>
+    <data name="Boat_Description_Required" xml:space="preserve">
+        <value>Boat description is required.</value>
+    </data>
+    <data name="Boat_Description_Too_Long" xml:space="preserve">
+        <value>Boat description cannot exceed 2000 characters.</value>
+    </data>
+    <data name="Boat_Document_Required" xml:space="preserve">
+        <value>Boat document is required.</value>
+    </data>
+    <data name="Boat_Document_Too_Long" xml:space="preserve">
+        <value>Boat document cannot exceed 50 characters.</value>
+    </data>
+    <data name="Boat_Capacity_Invalid" xml:space="preserve">
+        <value>Capacity must be greater than zero.</value>
+    </data>
+    <data name="Boat_Capacity_Too_High" xml:space="preserve">
+        <value>Capacity cannot exceed 1000 people.</value>
+    </data>
+    <data name="Boat_Price_Invalid" xml:space="preserve">
+        <value>Price per person must be greater than zero.</value>
+    </data>
+    <data name="Boat_Price_Too_High" xml:space="preserve">
+        <value>Price per person cannot exceed R$ 100,000.00.</value>
+    </data>
+    <data name="Boat_City_Required" xml:space="preserve">
+        <value>Location city is required.</value>
+    </data>
+    <data name="Boat_City_Too_Long" xml:space="preserve">
+        <value>Location city cannot exceed 100 characters.</value>
+    </data>
+    <data name="Boat_State_Required" xml:space="preserve">
+        <value>Location state is required.</value>
+    </data>
+    <data name="Boat_State_Invalid_Format" xml:space="preserve">
+        <value>State must have exactly 2 characters.</value>
+    </data>
+    <data name="Boat_Only_Approved_Can_Be_Active" xml:space="preserve">
+        <value>Only approved boats can be activated.</value>
+    </data>
+    <data name="Boat_Already_Approved" xml:space="preserve">
+        <value>Boat is already approved.</value>
+    </data>
+    <data name="Boat_Cannot_Reject_Approved" xml:space="preserve">
+        <value>Cannot reject an already approved boat.</value>
+    </data>
+    <data name="Boat_Only_Approved_Can_Be_Suspended" xml:space="preserve">
+        <value>Only approved boats can be suspended.</value>
+    </data>
+    <data name="Boat_Only_Suspended_Can_Be_Reactived" xml:space="preserve">
+        <value>Only suspended boats can be reactivated.</value>
+    </data>
+    <data name="Boat_Not_Found_Update" xml:space="preserve">
+        <value>Record not found.</value>
+    </data>
+    <data name="Boat_Not_Found_Get" xml:space="preserve">
+        <value>Record not found.</value>
+    </data>
+    
+    <!-- Image Messages -->
+    <data name="BoatImage_Invalid_Image" xml:space="preserve">
+        <value>Invalid image.</value>
+    </data>
+    <data name="BoatImage_Cannot_Decode" xml:space="preserve">
+        <value>Cannot decode base64 image.</value>
+    </data>
+    <data name="BoatImage_Cannot_Resize" xml:space="preserve">
+        <value>Cannot resize image.</value>
+    </data>
+    <data name="BoatImage_No_Codec" xml:space="preserve">
+        <value>No valid codec found to save the image.</value>
+    </data>
+    <data name="BoatImage_At_Least_One" xml:space="preserve">
+        <value>At least one image must be provided.</value>
+    </data>
+    <data name="BoatImage_Cannot_Be_Empty" xml:space="preserve">
+        <value>Image cannot be empty.</value>
+    </data>
+    <data name="BoatImage_Invalid_Format" xml:space="preserve">
+        <value>Invalid image. Expected format is data:image/*.</value>
+    </data>
+    
+    <!-- Authentication Messages -->
+    <data name="Auth_User_Not_Identified" xml:space="preserve">
+        <value>User not identified</value>
+    </data>
+    <data name="Auth_User_Invalid" xml:space="preserve">
+        <value>The user is not valid.</value>
+    </data>
+    
+    <!-- Payment Messages -->
+    <data name="Payment_Create_Error" xml:space="preserve">
+        <value>Error creating payment</value>
+    </data>
+    <data name="Payment_Create_Asaas_Error" xml:space="preserve">
+        <value>Error creating payment in Asaas</value>
+    </data>
+    <data name="Payment_Create_Internal_Error" xml:space="preserve">
+        <value>Internal error creating payment</value>
+    </data>
+    <data name="Payment_Token_Error" xml:space="preserve">
+        <value>Tokenization error: {0}</value>
+    </data>
+    <data name="Payment_Card_Create_Error" xml:space="preserve">
+        <value>Error creating credit card payment</value>
+    </data>
+    <data name="Payment_Card_Asaas_Error" xml:space="preserve">
+        <value>Error creating credit card payment in Asaas</value>
+    </data>
+    <data name="Payment_Card_Internal_Error" xml:space="preserve">
+        <value>Internal error creating credit card payment</value>
+    </data>
+    <data name="Payment_Get_Error" xml:space="preserve">
+        <value>Payment not found</value>
+    </data>
+    <data name="Payment_Get_Asaas_Error" xml:space="preserve">
+        <value>Error retrieving payment {0} from Asaas</value>
+    </data>
+    <data name="Payment_Get_Internal_Error" xml:space="preserve">
+        <value>Internal error retrieving payment</value>
+    </data>
+    <data name="Payment_QRCode_Error" xml:space="preserve">
+        <value>QR Code not found</value>
+    </data>
+    <data name="Payment_QRCode_Asaas_Error" xml:space="preserve">
+        <value>Error retrieving QR Code {0} from Asaas</value>
+    </data>
+    <data name="Payment_QRCode_Internal_Error" xml:space="preserve">
+        <value>Internal error retrieving QR Code</value>
+    </data>
+    <data name="Payment_Boleto_Error" xml:space="preserve">
+        <value>Boleto not found</value>
+    </data>
+    <data name="Payment_Boleto_Asaas_Error" xml:space="preserve">
+        <value>Error retrieving boleto {0} from Asaas</value>
+    </data>
+    <data name="Payment_Boleto_Internal_Error" xml:space="preserve">
+        <value>Internal error retrieving boleto</value>
+    </data>
+    <data name="Payment_Refund_Error" xml:space="preserve">
+        <value>Refund not processed</value>
+    </data>
+    <data name="Payment_Refund_Asaas_Error" xml:space="preserve">
+        <value>Error refunding payment {0} in Asaas</value>
+    </data>
+    <data name="Payment_Refund_Internal_Error" xml:space="preserve">
+        <value>Internal error refunding payment</value>
+    </data>
+    <data name="Payment_Cannot_Delete_Paid" xml:space="preserve">
+        <value>Cannot delete a paid payment</value>
+    </data>
+    
+    <!-- Scheduled Tour Messages -->
+    <data name="ScheduledTour_Not_Found" xml:space="preserve">
+        <value>Scheduled tour {0} not found</value>
+    </data>
+    <data name="ScheduledTour_Conflict" xml:space="preserve">
+        <value>A tour is already scheduled for this time</value>
+    </data>
+    <data name="ScheduledTour_Cannot_Delete_Completed" xml:space="preserve">
+        <value>Cannot delete a completed tour</value>
+    </data>
+    <data name="ScheduledTour_Cannot_Edit_Status" xml:space="preserve">
+        <value>This tour cannot be edited in the current status</value>
+    </data>
+    <data name="ScheduledTour_Start_After_End" xml:space="preserve">
+        <value>Start time must be earlier than end time</value>
+    </data>
+    <data name="ScheduledTour_Only_Scheduled_Can_Start" xml:space="preserve">
+        <value>Only scheduled tours can be started.</value>
+    </data>
+    <data name="ScheduledTour_Only_Started_Can_Complete" xml:space="preserve">
+        <value>Only ongoing tours can be completed.</value>
+    </data>
+    <data name="ScheduledTour_Already_Canceled" xml:space="preserve">
+        <value>Tour is already canceled.</value>
+    </data>
+    <data name="ScheduledTour_Cannot_Cancel_Completed" xml:space="preserve">
+        <value>Cannot cancel a completed tour.</value>
+    </data>
+    <data name="ScheduledTour_Only_Scheduled_Started_Can_Suspend" xml:space="preserve">
+        <value>Only scheduled or ongoing tours can be suspended.</value>
+    </data>
+    <data name="ScheduledTour_Already_Suspended" xml:space="preserve">
+        <value>Tour is already suspended.</value>
+    </data>
+    <data name="ScheduledTour_Only_Suspended_Can_Reactive" xml:space="preserve">
+        <value>Only suspended tours can be reactivated.</value>
+    </data>
+    <data name="ScheduledTour_Seats_Negative" xml:space="preserve">
+        <value>Number of available seats cannot be negative.</value>
+    </data>
+    <data name="ScheduledTour_Notes_Too_Long" xml:space="preserve">
+        <value>Notes cannot exceed 1000 characters.</value>
+    </data>
+    <data name="ScheduledTour_Boat_Required" xml:space="preserve">
+        <value>Boat identifier is required.</value>
+    </data>
+    <data name="ScheduledTour_Date_Past" xml:space="preserve">
+        <value>Tour date cannot be earlier than current date.</value>
+    </data>
+    <data name="ScheduledTour_Seats_Too_High" xml:space="preserve">
+        <value>Number of available seats cannot exceed 1000.</value>
+    </data>
+    <data name="ScheduledTour_Status_Not_Implemented" xml:space="preserve">
+        <value>Status update not implemented.</value>
+    </data>
+    
+    <!-- Review Messages -->
+    <data name="Review_Already_Exists" xml:space="preserve">
+        <value>A review already exists for this booking</value>
+    </data>
+    <data name="Review_Not_Found" xml:space="preserve">
+        <value>Review {0} not found</value>
+    </data>
+    <data name="Review_Deleted_Success" xml:space="preserve">
+        <value>Review {0} deleted successfully</value>
+    </data>
+    <data name="Review_Delete_Error" xml:space="preserve">
+        <value>Error deleting review {0}</value>
+    </data>
+    <data name="Review_Updated_Success" xml:space="preserve">
+        <value>Review {0} updated successfully</value>
+    </data>
+    <data name="Review_Update_Error" xml:space="preserve">
+        <value>Error updating review {0}</value>
+    </data>
+    
+    <!-- Advertisement Messages -->
+    <data name="Advertisement_Already_Approved" xml:space="preserve">
+        <value>Advertisement is already approved.</value>
+    </data>
+    <data name="Advertisement_Cannot_Approve_Canceled" xml:space="preserve">
+        <value>Cannot approve a canceled advertisement.</value>
+    </data>
+    <data name="Advertisement_Cannot_Reject_Approved" xml:space="preserve">
+        <value>Cannot reject an already approved advertisement.</value>
+    </data>
+    <data name="Advertisement_Cannot_Reject_Canceled" xml:space="preserve">
+        <value>Cannot reject a canceled advertisement.</value>
+    </data>
+    <data name="Advertisement_Only_Approved_Can_Suspend" xml:space="preserve">
+        <value>Only approved advertisements can be suspended.</value>
+    </data>
+    <data name="Advertisement_Only_Suspended_Can_Reactive" xml:space="preserve">
+        <value>Only suspended advertisements can be reactivated.</value>
+    </data>
+    <data name="Advertisement_Only_Approved_Can_Pause" xml:space="preserve">
+        <value>Only approved advertisements can be paused.</value>
+    </data>
+    <data name="Advertisement_Only_Paused_Can_Unpause" xml:space="preserve">
+        <value>Only paused advertisements can be unpaused.</value>
+    </data>
+    <data name="Advertisement_Already_Canceled" xml:space="preserve">
+        <value>Advertisement is already canceled.</value>
+    </data>
+    <data name="Advertisement_Cannot_Cancel_Completed" xml:space="preserve">
+        <value>Cannot cancel a completed advertisement.</value>
+    </data>
+    <data name="Advertisement_Only_Approved_Paused_Can_Complete" xml:space="preserve">
+        <value>Only approved or paused advertisements can be completed.</value>
+    </data>
+    <data name="Advertisement_ScheduledTour_Required" xml:space="preserve">
+        <value>Scheduled tour identifier is required.</value>
+    </data>
+    <data name="Advertisement_Customer_Required" xml:space="preserve">
+        <value>Customer identifier is required.</value>
+    </data>
+    <data name="Advertisement_Seats_Invalid" xml:space="preserve">
+        <value>Number of reserved seats must be greater than zero.</value>
+    </data>
+    <data name="Advertisement_Seats_Too_High" xml:space="preserve">
+        <value>Number of reserved seats cannot exceed 1000.</value>
+    </data>
+    <data name="Advertisement_Total_Invalid" xml:space="preserve">
+        <value>Total price must be greater than zero.</value>
+    </data>
+    <data name="Advertisement_Total_Too_High" xml:space="preserve">
+        <value>Total price cannot exceed R$ 1,000,000.00.</value>
+    </data>
+    
+    <!-- Chat Messages -->
+    <data name="ChatMessage_Not_Found" xml:space="preserve">
+        <value>Chat message {0} not found</value>
+    </data>
+    <data name="ChatMessage_Deleted_Success" xml:space="preserve">
+        <value>Chat message {0} deleted successfully</value>
+    </data>
+    <data name="ChatMessage_Marked_Read" xml:space="preserve">
+        <value>Message marked as read</value>
+    </data>
+    <data name="ChatMessage_Marked_Unread" xml:space="preserve">
+        <value>Message marked as unread</value>
+    </data>
+    
+    <!-- Webhook Messages -->
+    <data name="Webhook_Invalid_Token" xml:space="preserve">
+        <value>Invalid webhook token: {0}</value>
+    </data>
+    <data name="Webhook_Received" xml:space="preserve">
+        <value>Webhook received: {0} - {1}</value>
+    </data>
+    <data name="Webhook_Process_Error" xml:space="preserve">
+        <value>Error processing Asaas webhook</value>
+    </data>
+    <data name="Webhook_Internal_Error" xml:space="preserve">
+        <value>Internal error processing webhook</value>
+    </data>
+    <data name="Webhook_Processing" xml:space="preserve">
+        <value>Processing webhook: {0} for payment {1}</value>
+    </data>
+    <data name="Webhook_No_Payment_Data" xml:space="preserve">
+        <value>Webhook without payment data: {0}</value>
+    </data>
+    <data name="Webhook_Processed_Success" xml:space="preserve">
+        <value>Webhook processed successfully: {0} -> {1}</value>
+    </data>
+    
+    <!-- General Error Messages -->
+    <data name="Error_Problem_Request" xml:space="preserve">
+        <value>Request Problem</value>
+    </data>
+    <data name="Error_Not_Authorized_Title" xml:space="preserve">
+        <value>Unauthorized</value>
+    </data>
+    <data name="Error_Not_Authorized_Message" xml:space="preserve">
+        <value>You are not authorized to access this resource</value>
+    </data>
+    <data name="Error_Forbidden_Title" xml:space="preserve">
+        <value>Forbidden Operation</value>
+    </data>
+    <data name="Error_Forbidden_Message" xml:space="preserve">
+        <value>You do not have permission to perform this operation</value>
+    </data>
+    <data name="Error_Not_Found_Title" xml:space="preserve">
+        <value>Record not found</value>
+    </data>
+    <data name="Error_Not_Found_Message" xml:space="preserve">
+        <value>Could not find the record</value>
+    </data>
+    <data name="Error_Bad_Request_Title" xml:space="preserve">
+        <value>Could not save</value>
+    </data>
+    <data name="Error_Bad_Request_Message" xml:space="preserve">
+        <value>Could not save the changes.</value>
+    </data>
+    <data name="Error_Conflict_Title" xml:space="preserve">
+        <value>Record already exists</value>
+    </data>
+    <data name="Error_Conflict_Message" xml:space="preserve">
+        <value>Record already exists in the database</value>
+    </data>
+    <data name="Error_Validation_Title" xml:space="preserve">
+        <value>Validation errors occurred.</value>
+    </data>
+    <data name="Error_Max_Attempts_Reached" xml:space="preserve">
+        <value>Maximum number of attempts reached</value>
+    </data>
+    <data name="Error_Record_Not_Found" xml:space="preserve">
+        <value>Record not found.</value>
+    </data>
+    
+    <!-- Configuration Messages -->
+    <data name="Config_S3_Bucket_Required" xml:space="preserve">
+        <value>Environment variable AWS_S3_BUCKET_NAME not informed.</value>
+    </data>
+    <data name="Config_Hangfire_User_Required" xml:space="preserve">
+        <value>Environment variable HANGFIRE_USER not informed.</value>
+    </data>
+    <data name="Config_Hangfire_Password_Required" xml:space="preserve">
+        <value>Environment variable HANGFIRE_PASSWORD not informed.</value>
+    </data>
+    
+    <!-- Security Messages -->
+    <data name="Security_Path_Traversal" xml:space="preserve">
+        <value>File access not allowed: path traversal attempt detected.</value>
+    </data>
+    <data name="Security_Invalid_File_Url" xml:space="preserve">
+        <value>Invalid file URL!</value>
+    </data>
+    
+    <!-- Template Messages -->
+    <data name="Template_Path_Null_Empty" xml:space="preserve">
+        <value>Template path cannot be null or empty.</value>
+    </data>
+    <data name="Template_Not_Found" xml:space="preserve">
+        <value>Template not found: {0}</value>
+    </data>
+    <data name="Template_Html_Empty" xml:space="preserve">
+        <value>Rendered HTML is empty.</value>
+    </data>
+    
+    <!-- Cache Messages -->
+    <data name="Cache_Redis_Not_Configured" xml:space="preserve">
+        <value>[GetCache] - Redis is not configured. Returning default value.</value>
+    </data>
+    
+    <!-- IBGE Messages -->
+    <data name="Ibge_No_States_Found" xml:space="preserve">
+        <value>[IBGE] No states found</value>
+    </data>
+    <data name="Ibge_Error_States" xml:space="preserve">
+        <value>[IBGE] Error querying states</value>
+    </data>
+    <data name="Ibge_No_Cities_Found" xml:space="preserve">
+        <value>[IBGE] No municipalities found: {0}</value>
+    </data>
+    <data name="Ibge_Error_Cities" xml:space="preserve">
+        <value>[IBGE] Error querying municipalities. UF: {0}</value>
+    </data>
+    
+    <!-- Database Messages -->
+    <data name="Database_Commit_Error" xml:space="preserve">
+        <value>[Commit] - Error persisting data to database: {0}</value>
+    </data>
+    
+    <!-- Email Messages -->
+    <data name="Email_Send_Success" xml:space="preserve">
+        <value>Email sent successfully!</value>
+    </data>
+    <data name="Email_Send_Failed" xml:space="preserve">
+        <value>Failed to send email:</value>
+    </data>
+    <data name="Email_Send_Error" xml:space="preserve">
+        <value>Error while sending email: {0}</value>
+    </data>
+    <data name="Email_SendGrid_Key_Required" xml:space="preserve">
+        <value>SendGrid API key cannot be empty.</value>
+    </data>
+    
+    <!-- Token Messages -->
+    <data name="Token_Generate_Error" xml:space="preserve">
+        <value>Error generating JWT token for user: {0}</value>
+    </data>
+    <data name="Token_Refresh_Error" xml:space="preserve">
+        <value>Error generating refresh token</value>
+    </data>
+    
+    <!-- Validation Messages (Requests) -->
+    <data name="Validation_Page_Required" xml:space="preserve">
+        <value>Page is required.</value>
+    </data>
+    <data name="Validation_PageSize_Required" xml:space="preserve">
+        <value>RecordsPerPage is required.</value>
+    </data>
+    <data name="Validation_Page_Greater_Zero" xml:space="preserve">
+        <value>Page must be greater than zero.</value>
+    </data>
+    <data name="Validation_PageSize_Greater_Zero" xml:space="preserve">
+        <value>RecordsPerPage must be greater than zero.</value>
+    </data>
+    <data name="Validation_PageSize_Max_100" xml:space="preserve">
+        <value>RecordsPerPage must be less than or equal to 100.</value>
+    </data>
+    <data name="Validation_Mark_Read_Request_Required" xml:space="preserve">
+        <value>Mark chat message read request is required</value>
+    </data>
+    <data name="Validation_Invalid_Tour_Status" xml:space="preserve">
+        <value>Invalid scheduled tour status</value>
+    </data>
+    <data name="Validation_Reason_Too_Long" xml:space="preserve">
+        <value>Reason cannot exceed 500 characters</value>
+    </data>
+    <data name="Validation_Tour_Date_Past" xml:space="preserve">
+        <value>Tour date cannot be in the past</value>
+    </data>
+    <data name="Validation_Start_Time_Required" xml:space="preserve">
+        <value>Start time is required</value>
+    </data>
+    <data name="Validation_End_Time_Required" xml:space="preserve">
+        <value>End time is required</value>
+    </data>
+    <data name="Validation_End_Time_After_Start" xml:space="preserve">
+        <value>End time must be after start time</value>
+    </data>
+    <data name="Validation_Available_Seats_Greater_Zero" xml:space="preserve">
+        <value>Available seats must be greater than 0</value>
+    </data>
+    <data name="Validation_Available_Seats_Max_1000" xml:space="preserve">
+        <value>Available seats cannot exceed 1000</value>
+    </data>
+    <data name="Validation_Notes_Too_Long" xml:space="preserve">
+        <value>Notes cannot exceed 1000 characters</value>
+    </data>
+    <data name="Validation_Booking_Id_Required" xml:space="preserve">
+        <value>Booking ID is required</value>
+    </data>
+    <data name="Validation_Boat_Id_Required" xml:space="preserve">
+        <value>Boat ID is required</value>
+    </data>
+    <data name="Validation_Customer_Id_Required" xml:space="preserve">
+        <value>Customer ID is required</value>
+    </data>
+    <data name="Validation_Rating_Between_1_5" xml:space="preserve">
+        <value>Rating must be between 1 and 5</value>
+    </data>
+    <data name="Validation_Comment_Too_Long" xml:space="preserve">
+        <value>Comment cannot exceed 1000 characters</value>
+    </data>
+    <data name="Validation_Refund_Value_Greater_Zero" xml:space="preserve">
+        <value>Refund value must be greater than 0</value>
+    </data>
+    <data name="Validation_Refund_Reason_Required" xml:space="preserve">
+        <value>Refund reason is required</value>
+    </data>
+    <data name="Validation_Refund_Reason_Too_Long" xml:space="preserve">
+        <value>Reason cannot exceed 500 characters</value>
+    </data>
+    
+    <!-- CNPJ/GTIN Validation Messages -->
+    <data name="Validation_Cnpj_Base_Invalid" xml:space="preserve">
+        <value>Invalid CNPJ base for DV calculation</value>
+    </data>
+    <data name="Validation_Gtin_Digits_Only" xml:space="preserve">
+        <value>GTIN must contain only digits.</value>
+    </data>
+    <data name="Validation_Gtin_Invalid_Length" xml:space="preserve">
+        <value>Invalid length. Must contain 7, 11, 12 or 13 digits.</value>
+    </data>
+    
+    <!-- Date Validation Messages -->
+    <data name="Validation_Invalid_Year" xml:space="preserve">
+        <value>Invalid year</value>
+    </data>
+    <data name="Validation_Invalid_Month" xml:space="preserve">
+        <value>Invalid month</value>
+    </data>
+    <data name="Validation_Invalid_Day" xml:space="preserve">
+        <value>Invalid day</value>
+    </data>
+    
+    <!-- System Messages -->
+    <data name="System_Unknown_Error" xml:space="preserve">
+        <value>Unknown error</value>
+    </data>
+    <data name="System_Expected_Decimal" xml:space="preserve">
+        <value>Expected decimal value.</value>
+    </data>
+    <data name="System_Request_Id_Set" xml:space="preserve">
+        <value>RequestId set as: {0}</value>
+    </data>
+    
+    <!-- Payment Split Messages -->
+    <data name="PaymentSplit_Either_Fixed_Percentual" xml:space="preserve">
+        <value>Either fixed value or percentual value must be specified</value>
+    </data>
+  
+  </root>
