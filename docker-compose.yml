@@ -1,10 +1,17 @@
+version: "3.1"
+
 services:
-  api:
-    build:
-      context: ./backend
-      dockerfile: ./src/NautiHub.API/Dockerfile
-    container_name: nuc_api
+  mysql:
+    image: mysql:8.0
+    command: --lower_case_table_names=1
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
     ports:
-      - "8080:8080" # acesso externo
-    depends_on:
-      - db
+      - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+
+  
